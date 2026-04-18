@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#44474e",
+                        "tertiary-container": "#dff4ff",
+                        "surface-container-low": "#f7f9fc",
+                        "on-primary-fixed": "#001d35",
+                        "primary-fixed": "#d1e4ff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#f0f0f3",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary": "#585f6a",
+                        "surface-bright": "#fcfcff",
+                        "tertiary-fixed": "#bee9ff",
+                        "on-tertiary-fixed": "#001f2a",
+                        "on-error-container": "#410002",
+                        "surface-tint": "#0061a4",
+                        "on-primary-fixed-variant": "#004a7f",
+                        "on-secondary-fixed": "#161c24",
+                        "surface-variant": "#e0e2ec",
+                        "on-secondary-fixed-variant": "#414750",
+                        "on-tertiary-fixed-variant": "#004d66",
+                        "tertiary": "#006686",
+                        "surface-container-highest": "#e2e2e6",
+                        "on-surface-variant": "#44474e",
+                        "surface-container": "#f0f0f3",
+                        "outline": "#74777f",
+                        "on-primary-container": "#ffffff",
+                        "primary-container": "#0ea5e9",
+                        "surface-container-high": "#e8eaed",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#9ecaef",
+                        "primary-fixed-dim": "#9ecaef",
+                        "surface": "#f8fafc",
+                        "outline-variant": "#c4c6d0",
+                        "tertiary-fixed-dim": "#87cefd",
+                        "on-background": "#1a1c1e",
+                        "on-tertiary-container": "#001e2c",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d9dbdf",
+                        "inverse-on-surface": "#f1f0f4",
+                        "on-surface": "#1a1c1e",
+                        "inverse-surface": "#2f3033",
+                        "secondary-fixed": "#dae2f1",
+                        "background": "#f8fafc",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#bec6d5",
+                        "primary": "#0ea5e9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "2xl": "1.5rem",
+                        "3xl": "2.25rem",
+                        "4xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "PingFang SC"],
+                        "body": ["Inter", "PingFang SC"],
+                        "label": ["Inter", "PingFang SC"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(0,0,0,0.1);
+        }
+        body {
+            overflow: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+        .glass-nav {
+            background: rgba(248, 250, 252, 0.7);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+        }
+        .frost-tab-container {
+            background: rgba(241, 245, 249, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        .frost-tab-active {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+        .premium-shadow {
+            box-shadow: 
+                0 4px 6px -1px rgba(0, 0, 0, 0.02),
+                0 10px 15px -3px rgba(0, 0, 0, 0.03),
+                0 20px 25px -5px rgba(0, 0, 0, 0.03);
+        }
+        .premium-shadow-hover {
+            box-shadow: 
+                0 10px 20px -5px rgba(0, 0, 0, 0.04),
+                0 20px 40px -10px rgba(0, 0, 0, 0.05),
+                0 40px 60px -15px rgba(0, 0, 0, 0.06);
+        }
+        .squircle-card {
+            border-radius: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-[#F9FBFF] font-body text-slate-900">
+<div class="flex h-screen w-full overflow-hidden">
+<!-- Left Sidebar: Profile & Stats -->
+<aside class="w-[30%] bg-white flex flex-col p-8 relative overflow-hidden shrink-0 border-r border-slate-100/80">
+<div class="absolute top-0 right-0 w-[300px] h-[300px] bg-sky-50 rounded-full blur-[100px] -mr-40 -mt-40 opacity-60"></div>
+<div class="absolute bottom-0 left-0 w-[200px] h-[200px] bg-primary/5 rounded-full blur-[80px] -ml-24 -mb-24 opacity-50"></div>
+<div class="relative z-10 h-full flex flex-col">
+<div class="mb-10">
+<div class="text-xl font-black tracking-tight text-slate-900">
+<a class="cursor-pointer hover:text-primary transition-all flex items-center gap-2" href="#">
+<span class="w-2 h-2 bg-primary rounded-full"></span>
+                        智创工坊
+                    </a>
+</div>
+</div>
+<!-- Profile Info Section -->
+<div class="flex flex-col items-start gap-6 mb-8">
+<div class="relative">
+<img alt="用户头像" class="w-24 h-24 rounded-3xl object-cover shadow-xl border-4 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnXXE9kf4Lu7toa147-UbOpSD6V10UlDq15uw6pOvfaSZZ2SeDOyOF3VzVfvYx-1q-K60kz3z_hInH5KCSgfh6LGYgatp4sCMt2Ymw92FMhWoQm2_kKAtyfrJG-Tyj2P2mB0a6fEDlwTRc9vwS64XBuYlVyKD_AmOaCUPIyBALHVw1afKIRrCILxR-J_JCdxRE5N_QL5nAdZjmCxBixkFdGmCLMObv5q4yQ7Mxw-BrpL3ngeicNv8zvzjXsDvttfH-2wLIvCvw8iwq"/>
+<div class="absolute -bottom-1 -right-1 bg-primary w-7 h-7 rounded-full border-2 border-white flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-[12px] text-white" style='font-variation-settings: "FILL" 1;'>check</span>
+</div>
+</div>
+<div>
+<h1 class="text-3xl font-black tracking-tight text-slate-900 leading-tight">Creator ID</h1>
+<p class="text-slate-400 mt-1 text-sm font-medium">创作者个人中心</p>
+</div>
+<!-- Identity Switcher -->
+<div class="frost-tab-container p-1 rounded-full flex w-full max-w-[280px] shadow-sm">
+<button class="flex-1 py-2 px-4 rounded-full text-xs font-bold transition-all duration-300 text-slate-400 hover:text-slate-900">
+                        雇主模式
+                    </button>
+<button class="flex-1 py-2 px-4 rounded-full text-xs font-bold transition-all duration-300 bg-slate-900 text-white shadow-lg">
+                        创作者模式
+                    </button>
+</div>
+</div>
+<!-- Sidebar Menu Navigation -->
+<nav class="space-y-2 mb-8">
+<button class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl bg-slate-50 text-slate-900 font-bold transition-all group text-sm">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">dashboard</span>
+<span>数据看板</span>
+</button>
+<button class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-400 font-bold hover:bg-slate-50 hover:text-slate-900 transition-all group text-sm">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">grade</span>
+<span>我的评价</span>
+</button>
+</nav>
+<!-- Asset/Wallet Section -->
+<div class="mt-auto space-y-4">
+<div class="glass-card rounded-3xl p-5 premium-shadow border-slate-100">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-black text-slate-400 uppercase tracking-widest">资产概览</span>
+<span class="material-symbols-outlined text-slate-300 text-lg">account_balance_wallet</span>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<div class="space-y-1">
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.1em]">累计收入</p>
+<p class="text-3xl font-black text-slate-900 tabular-nums">¥12.8k</p>
+</div>
+<div class="h-px bg-slate-100/60"></div>
+<div class="space-y-1">
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.1em]">完结单数</p>
+<p class="text-3xl font-black text-slate-900 tabular-nums">24</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold text-base flex items-center justify-center gap-2 hover:bg-slate-800 transition-all shadow-xl hover:-translate-y-0.5 active:translate-y-0">
+<span class="material-symbols-outlined text-xl">add_task</span>
+                    去接单
+                </button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="w-[70%] h-full flex flex-col bg-slate-50/50 overflow-hidden relative">
+<header class="px-12 py-6 flex justify-between items-center glass-nav sticky top-0 z-30 border-b border-slate-200/40">
+<div class="flex flex-col">
+<div class="frost-tab-container p-1 rounded-full inline-flex w-fit shadow-sm">
+<button class="px-6 py-2 rounded-full text-xs font-bold transition-all duration-300 frost-tab-active text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" style='font-variation-settings: "FILL" 1;'>home</span>
+                        首页
+                    </button>
+<button class="px-6 py-2 rounded-full text-xs font-bold transition-all duration-300 text-slate-400 hover:text-slate-900 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">explore</span>
+                        需求广场
+                    </button>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4 text-slate-400">
+<div class="relative cursor-pointer group">
+<span class="material-symbols-outlined text-[22px] group-hover:text-primary transition-colors">notifications</span>
+<span class="absolute top-0 right-0 w-1.5 h-1.5 bg-red-500 rounded-full border border-white"></span>
+</div>
+<div class="cursor-pointer group">
+<span class="material-symbols-outlined text-[22px] group-hover:text-primary transition-colors">settings</span>
+</div>
+</div>
+<div class="h-6 w-px bg-slate-200"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<img alt="用户头像" class="w-9 h-9 rounded-full ring-2 ring-white shadow-sm transition-transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAo9QP5lmqGBX5JTfF3nphq-OI2zAvovNvut-LDfw9RbpTanZzkXe_tHdlsSpjbpZNHQ3_bYnEcolG-OrNtKvBla2_05D98LvH454FceZdjMX9tJFyDERnME4kbgOa2rWaySJUvukVJFAKjU6dvE5Wvlkujfn7IjhdUWRjA6vkTEGrUwRDewFXDHKr9rcWtvLmAVJrMvWjhueJnxJ8N501q5EZlqL8pByq6Xf27mo9f0T8yrGGljYCINHkdr0nWk2YRlC-RY-9ya67"/>
+<span class="text-xs font-bold text-slate-600 group-hover:text-primary transition-colors">账户设置</span>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto custom-scrollbar px-12 pb-12">
+<!-- My Works Section -->
+<section class="mt-10 mb-12">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-black text-slate-900 flex items-center gap-3">
+<span class="w-1 h-7 bg-primary rounded-full shadow-[0_0_10px_rgba(14,165,233,0.3)]"></span>
+                        我的作品
+                    </h2>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-100 rounded-full text-xs font-bold text-slate-600 hover:text-primary hover:border-primary transition-all shadow-sm">
+<span class="material-symbols-outlined text-lg">upload</span>
+                        发布新作品
+                    </button>
+</div>
+<div class="grid grid-cols-3 gap-5">
+<!-- Work Item 1 -->
+<div class="group relative aspect-[4/3] rounded-2xl overflow-hidden glass-card p-1.5 premium-shadow hover:premium-shadow-hover transition-all duration-500">
+<img alt="Work 1" class="w-full h-full object-cover rounded-[1.2rem] group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy46VBSBIwusuIL0WE0EsylAhhlvCJoCv_kL7kmuLEq_QDldnKzazGjzzj-4zuM2YQdj4CQ0W_hbNQmmRCtD3XjiGxQHTmUOrWtaWw-VLw0HGsUz5ogCSCoCv74MDhlATgzmIGgLyz1HF2p6zKmagAx52cvbBhZACC3CaaL5rWrzY8SREkpNNQXix9RQyZzU7wZbA9U64es06pWovlMln7Y9bYkyib9Pwl0li7yjY0cOPTCU0VrtMqkhV_sPSbNKNiLl1WxhUlNNx2"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+<p class="text-white font-bold text-sm">品牌视觉探索 v1.0</p>
+<p class="text-white/70 text-[10px]">VI设计 / 2024</p>
+</div>
+</div>
+<!-- Work Item 2 -->
+<div class="group relative aspect-[4/3] rounded-2xl overflow-hidden glass-card p-1.5 premium-shadow hover:premium-shadow-hover transition-all duration-500">
+<img alt="Work 2" class="w-full h-full object-cover rounded-[1.2rem] group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0E4RXuztOfYF_wedvRhUzqslteooMsEp_8aLlovtIeWaSs2tt4bBGiPg0rnFwtLaVjN9ALgE1OQtC-X_T7cn3ppU_ee1YX3i94Iyjvy0cyOMilU2-7bESwaQLENnh4h9KmN6ZMPT-44m8Dk4_FjyrVx4XAljfZRKlMUftUYnbmqWGkX51coOq6OidtdDFzWgJLCB9g870pYGqDJ5NsQwamu91rLtrZN3XgzynHhNPbpRcIdtGizjgUJl1OrDGJKh-rw8m6-8LKvSe"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+<p class="text-white font-bold text-sm">3D几何抽象艺术</p>
+<p class="text-white/70 text-[10px]">3D渲染 / 2024</p>
+</div>
+</div>
+<!-- Work Item 3 -->
+<div class="group relative aspect-[4/3] rounded-2xl overflow-hidden glass-card p-1.5 premium-shadow hover:premium-shadow-hover transition-all duration-500">
+<img alt="Work 3" class="w-full h-full object-cover rounded-[1.2rem] group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcGXgQKhICC4y3HghlYTzb3QydpotWbes6ykFHlISbKLH2McJVVLAAzXg2H87kH4Or126blVe04ZBPd4EW7t5dkHIVpSoPoMhbJ754a8FCSjJZwQNx5vCMsoWxK2v3wyEML0nNh90V9CkskOqeSnKT_Zk11v1g8xpugTSRMkdWaMjqIS-ubx_jeR98GzGQRAjJdnDm-O2NO7jO_DbHhUH1UJlXL5ql8I_EJ3uQ_sK_UzwnOJcN3bx06yngVvB9Ih4g3ruJFcWtyD60"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+<p class="text-white font-bold text-sm">移动端极简界面</p>
+<p class="text-white/70 text-[10px]">UI设计 / 2023</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Received Orders Section -->
+<section>
+<div class="mb-6">
+<h2 class="text-2xl font-black text-slate-900 flex items-center gap-3">
+<span class="w-1 h-7 bg-primary rounded-full shadow-[0_0_10px_rgba(14,165,233,0.3)]"></span>
+                        接到的订单
+                    </h2>
+</div>
+<div class="space-y-5">
+<!-- Order Card 1 -->
+<article class="group relative glass-card squircle-card p-6 premium-shadow hover:premium-shadow-hover transition-all duration-500 cursor-pointer">
+<div class="flex justify-between items-start mb-6">
+<div class="flex gap-3">
+<span class="px-4 py-1.5 bg-emerald-50 text-emerald-600 text-[10px] font-black rounded-full uppercase tracking-widest border border-emerald-100/50">进行中</span>
+<span class="px-4 py-1.5 bg-slate-50 text-slate-400 text-[10px] font-black rounded-full uppercase tracking-widest border border-slate-100/50">VI设计</span>
+</div>
+<span class="text-2xl font-black text-primary tracking-tight">¥2,500</span>
+</div>
+<h3 class="text-xl font-extrabold text-slate-900 mb-3 group-hover:text-primary transition-colors duration-300 tracking-tight leading-tight">高端餐饮品牌VI设计</h3>
+<p class="text-sm text-slate-500 leading-relaxed max-w-xl mb-6 font-medium">需要一套包含Logo、菜单、及室内导视系统的完整视觉方案。要求具备极简主义美学与高度的品牌识别度。</p>
+<div class="flex items-center justify-between pt-6 border-t border-slate-100/40">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border-2 border-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpxKGUQXXfE_7ouodC-3Pa2vh_Ly5MAf4JOoDoqQMK0gbzPONZoVVFC_x3_sm4gf1WYpRkqSaIi7Du1RVd9Q0xxQQaah7HDPeO8yPinN0p08nA2ZxywN4-3dk-YvZgB6GGZf_VxNG87TRo4QPJK1xdvZECAixu6dWWDxMTBd2m1NPKHZ8pKDxSakzeS9kI304WcqlWJuw-mVf0k9Mz0xsoP7BKGj6_d1jlxjRQEt9PVls4RnzFaVU4EmiWDTBu6ZAb1WY7xMkuuKK3"/>
+<span class="text-[11px] font-bold text-slate-400">发布者：云端设计工作室</span>
+</div>
+<button class="flex items-center gap-1.5 text-xs font-black text-slate-900 group/btn hover:text-primary transition-colors">
+                                查看详情 <span class="material-symbols-outlined text-lg group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Order Card 2 -->
+<article class="group relative glass-card squircle-card p-6 premium-shadow hover:premium-shadow-hover transition-all duration-500 cursor-pointer">
+<div class="flex justify-between items-start mb-6">
+<div class="flex gap-3">
+<span class="px-4 py-1.5 bg-slate-100 text-slate-500 text-[10px] font-black rounded-full uppercase tracking-widest border border-slate-200/50">已完成</span>
+<span class="px-4 py-1.5 bg-slate-50 text-slate-400 text-[10px] font-black rounded-full uppercase tracking-widest border border-slate-100/50">3D建模</span>
+</div>
+<span class="text-2xl font-black text-primary tracking-tight">¥1,200</span>
+</div>
+<h3 class="text-xl font-extrabold text-slate-900 mb-3 group-hover:text-primary transition-colors duration-300 tracking-tight leading-tight">3D角色动画场景建模</h3>
+<p class="text-sm text-slate-500 leading-relaxed max-w-xl mb-6 font-medium">针对二次元风格的手游进行城市场景建模，包含光影氛围渲染。需要配合原画设定进行精准还原。</p>
+<div class="flex items-center justify-between pt-6 border-t border-slate-100/40">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border-2 border-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_xJ5QukMUgvC2s3Yo2eNpXU-vXvpoVefc_JU7GLL_zwlejQ-QX-9WtY2mL5wdNCc0cXThIPYnk4K9zqRjrGbxj2Z2oDMYAyLHyvz9NXZh-hO-4tXAX88eIURPSEUe_qr953-55ydJlbrrSh9CSnrY-hamvny2Vq0zx6VG8RQJCJVK80h2xGkK6Pued1TCUHcKsDHjH-cLgvKLFaXXDP72Qgk9ms3GZjz9WmsCvzQvDqNGiStQAdAx3jOUfkByoUvRD9Fc6nXSAw_e"/>
+<span class="text-[11px] font-bold text-slate-400">发布者：极客科技</span>
+</div>
+<button class="flex items-center gap-1.5 text-xs font-black text-slate-900 group/btn hover:text-primary transition-colors">
+                                查看详情 <span class="material-symbols-outlined text-lg group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<div class="h-12"></div>
+</div>
+</main>
+</div>
+</body></html>

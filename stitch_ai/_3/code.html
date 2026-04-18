@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Noto+Sans+SC:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f3f3f8",
+                        "on-secondary-fixed-variant": "#46464b",
+                        "surface": "#f9f9fe",
+                        "primary-fixed": "#d8e2ff",
+                        "on-primary-fixed-variant": "#004493",
+                        "inverse-surface": "#2e3034",
+                        "surface-variant": "#e2e2e7",
+                        "surface-tint": "#005bc1",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f0f0f5",
+                        "primary": "#0058bc",
+                        "outline": "#717786",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e8e8ed",
+                        "surface-container-highest": "#e2e2e7",
+                        "on-surface": "#1a1c1f",
+                        "on-secondary-fixed": "#1a1b1f",
+                        "secondary-container": "#e0dfe4",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "secondary-fixed-dim": "#c6c6cb",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1a1c1f",
+                        "surface-bright": "#f9f9fe",
+                        "tertiary": "#9e3d00",
+                        "surface-dim": "#d9dade",
+                        "primary-fixed-dim": "#adc6ff",
+                        "background": "#f9f9fe",
+                        "on-primary-container": "#fefcff",
+                        "outline-variant": "#c1c6d7",
+                        "secondary-fixed": "#e3e2e7",
+                        "primary-container": "#0070eb",
+                        "on-tertiary-container": "#fffbff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#626267",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#adc6ff",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#c64f00",
+                        "on-primary-fixed": "#001a41",
+                        "tertiary-fixed-dim": "#ffb595",
+                        "on-surface-variant": "#414755",
+                        "tertiary-fixed": "#ffdbcc",
+                        "surface-container": "#ededf2",
+                        "secondary": "#5d5e63"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "Noto Sans SC"],
+                        "body": ["Inter", "Noto Sans SC"],
+                        "label": ["Inter", "Noto Sans SC"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+        }
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            background-color: #f9f9fe;
+            background-image: radial-gradient(at 0% 0%, rgba(216, 226, 255, 0.4) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(255, 219, 204, 0.3) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="text-on-surface overflow-hidden h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.06)] flex justify-between items-center px-8 h-16 w-full font-['Inter','PingFang_SC'] tracking-tight">
+<div class="text-2xl font-black bg-gradient-to-br from-blue-500 to-blue-700 bg-clip-text text-transparent">The Ethereal Canvas</div>
+<div class="flex items-center space-x-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">首页</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">广场</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">需求大厅</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 text-slate-500 hover:bg-blue-50/50 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-blue-50/50 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img alt="User avatar" class="w-8 h-8 rounded-full bg-surface-container-high" data-alt="close-up portrait of a professional modern user avatar in a minimalist circle frame" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDGej_8Xqws2GHltnAKj3-kzJC15hXloJEgHOtB2XVue8IVbg657C3-SMaOsemwePA_9b1rnnt3YyV0Rs0A9iqDJOBy17GraVrufdCeUkKjf5B3Q3S_YcCv8hVZOvNTR-u0mb3VDeA0hKnROeBfYJY03r_wadOe8RimGLGFIqON5o2ZJLplRGj7WjChBB6DdFr6O0hQqn-8g4G5fG2yuUJY8QdpFtgvSTvSg_6-AJVRAYoOIIuAvvQacn61WYddT0fwE1qaVTurI5J"/>
+</div>
+</nav>
+<!-- Main Content Layout -->
+<main class="flex-1 mt-16 flex overflow-hidden">
+<!-- Left Column: Session List -->
+<aside class="w-80 flex flex-col glass-panel border-r border-outline-variant/15">
+<div class="p-6">
+<h2 class="text-xl font-bold tracking-tight mb-4">消息中心</h2>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-highest rounded-full border-none focus:ring-2 focus:ring-primary/20 text-sm" placeholder="搜索联系人..." type="text"/>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-3 space-y-2 pb-6">
+<!-- Active Chat -->
+<div class="p-4 rounded-lg bg-primary-container text-on-primary-container flex items-center space-x-3 cursor-pointer shadow-lg shadow-primary/10">
+<img alt="林深见鹿" class="w-12 h-12 rounded-full border-2 border-white/20" data-alt="professional portrait of a young digital artist with glasses and creative lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB947h4gMk6IU_9Sidv4JI1dX-hyKuDPholja4oCEbLh403qQiYQGqUsZWNS6N3_AfX6WR-Q3IpdrSZ7zLBWioRjnyXPCyOIKOIZAGi3KYG3QGsLdBRAHUqeNJybYZn1k4FmfUWBF2CUpPh008ZT_RE5mmq9KID68Brd1iLW-2fGdz58Mx1qpa8Hei0YhM791X0lRRPnjmoqq-mBFEvLGsWLVYdkk_Y7_Du6nCYO8ydwEcT9JpK15w5yH8hx4GEhaiVvgU2DzJXdm_Y"/>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center">
+<span class="font-bold truncate">林深见鹿</span>
+<span class="text-[10px] opacity-70">10:45</span>
+</div>
+<p class="text-xs truncate opacity-80">没问题，我马上开始优化...</p>
+</div>
+</div>
+<!-- Other Chats -->
+<div class="p-4 rounded-lg hover:bg-surface-container-high transition-all flex items-center space-x-3 cursor-pointer">
+<img alt="夏日萤火" class="w-12 h-12 rounded-full" data-alt="creative avatar of a female designer with abstract background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiaC0Q0RszDLm1zHQQ0FSmYKN8EB-CdWbQHXbIaxWqMaHLUin0yCa1MBz1Co_Oc-gZItafD0B-1bQLlG1kZU8F-FmHBpwhki7WX5SuQ1to8DCLQKIR6wX4VYXEiA9WAj6IYfZFuT3PkLmlw2dkquTbA-PtmTFMwmAwDnCQKioeQl55D4t4iDXu8LhsXP7s-FLiPo5_CnXtXjNdWP5Hv-G2NnEQ-zkhLCq85G7WjrF35EV1puhYVB4KLtijbLqE2doqi_ZwWpro8xxu"/>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center">
+<span class="font-medium text-on-surface truncate">夏日萤火</span>
+<span class="text-[10px] text-outline">昨天</span>
+</div>
+<p class="text-xs text-on-surface-variant truncate">项目初稿已经发到您邮箱了，请查收。</p>
+</div>
+</div>
+<div class="p-4 rounded-lg hover:bg-surface-container-high transition-all flex items-center space-x-3 cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">group</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center">
+<span class="font-medium text-on-surface truncate">AI 短片创作组</span>
+<span class="text-[10px] text-outline">周二</span>
+</div>
+<p class="text-xs text-on-surface-variant truncate">李老师：这个光影渲染还可以再柔和一点。</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Center Column: Chat Window -->
+<section class="flex-1 flex flex-col relative bg-surface-container-lowest/30">
+<!-- Chat Header -->
+<header class="h-16 flex items-center justify-between px-8 glass-panel border-b border-outline-variant/15 z-10">
+<div class="flex items-center space-x-3">
+<div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+<h3 class="font-bold text-lg">林深见鹿</h3>
+</div>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">videocam</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">call</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">more_vert</button>
+</div>
+</header>
+<!-- Chat Content -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<div class="flex justify-center">
+<span class="text-[11px] px-3 py-1 bg-surface-container-high rounded-full text-on-surface-variant font-medium">上午 10:24</span>
+</div>
+<!-- Left Bubble (Other) -->
+<div class="flex items-start space-x-4 max-w-[80%]">
+<img alt="林深见鹿" class="w-10 h-10 rounded-full shrink-0" data-alt="digital artist headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8IPGVxjNMKMFo-xMF0VVvPsHRpgk81UfR29IL4PDqfqQB0a6JpJrAIiRvzLpIpLVTSkyG7vRKRRo6ueihP4KRQFt0J2iwj7o4uq5L9y42ExsYZbHSwaS3MbNXSLMDblUWtkfmb1y4tAeVAzJSH_E2f_6dX6ZqCFJVbjDsCt33Ku3h8F1VBn79HnhVbs_gBV65TFCe1hFG_2icQYIHdbCtFp9WFavbLwbMtyE60ekrHWrT7v96q7Z3WL-7Aol7eolhT_Eeyhr6PXLI"/>
+<div class="space-y-2">
+<div class="p-4 bg-primary/10 backdrop-blur-md rounded-lg rounded-tl-none text-on-surface leading-relaxed">
+                            你好！关于你提到的那个“AI短片角色动画师”的需求，我已经看过了初步的设计方案。
+                        </div>
+<div class="p-4 bg-primary/10 backdrop-blur-md rounded-lg text-on-surface">
+                            这是我刚才用最新的模型跑的一张测试预览图，你看一下整体的角色质感是否符合你的预期？
+                        </div>
+<div class="rounded-lg overflow-hidden shadow-xl max-w-sm group">
+<img alt="AI Preview" class="w-full object-cover aspect-video" data-alt="cinematic 3D character design of a futuristic explorer in a neon-lit cyberpunk forest, highly detailed rendering" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR0tG-p1-_N6dx1Ou4Pm2ZnmKhF5vzYs8w8kmKG1E03OMWj77QQUnl3rpNlxfNcj2YXAtkj93ISYB006YToUXoGHZmLPmqoK1Q-T6IIaYxc0e-ZTEknSpvtEB8vv4pLBQ3sOLjwmkbn2T8L1aowsQ3UXFHvvDC1UnJXa98PioUyr9bYZuURtL4K5VDatjLmL3HeSJkWNwE61Y4o8wzvLsazWYu71LyReS2BfFhNV3BMSBqAeDA1joJIV128YZPJxVDrerNoPoqkbo1"/>
+</div>
+</div>
+</div>
+<!-- Right Bubble (Me) -->
+<div class="flex items-start justify-end space-x-4 ml-auto max-w-[80%]">
+<div class="space-y-2">
+<div class="p-4 bg-surface-container-highest rounded-lg rounded-tr-none text-on-surface leading-relaxed">
+                            这张质感非常棒！尤其是面部的细节刻画和这种微弱的荧光效果，完全契合我的概念图。
+                        </div>
+<div class="p-4 bg-surface-container-highest rounded-lg text-on-surface">
+                            动作流畅度方面有样片可以参考吗？
+                        </div>
+</div>
+<img alt="Me" class="w-10 h-10 rounded-full shrink-0" data-alt="minimalist silhouette avatar for the current user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkgtwE7DGGTsjhMNh-gZw3UPN6W1Rx-sRyxsRQrOFKQn72C6vXqQolQeQDUZL3jWDmaIAWTk6v5lBpMrjbE-zbQo7wWotScA4ip0AqM8lcT1NKkdtyvx0lRBFbp5Pw1-UyDF_Rj4ska657Twk68r6JckwhYBBiyadYXpJdRKHFdMsj4BHzKtO1b5HhpRRpUiEIKYm4sbHnI5SRuuAdmBGBcHhxKy9DLxROQQIkmXIG9bpUoxoENjadjVF00ah08k_iP8Ps3vmNBL8p"/>
+</div>
+<!-- Left Bubble (Other) -->
+<div class="flex items-start space-x-4 max-w-[80%]">
+<img alt="林深见鹿" class="w-10 h-10 rounded-full shrink-0" data-alt="digital artist avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBdLCpX0HO0YQh0CR4A44EEVgHOJkwtffK1cLMIrcP_ADlsKsAAwLvs0zF7RlDxF7BqNXahmrGsZuYpx1WrROiseEjQ8MF6JOetId3Tp6vw5ifr8SQcqDJPHhSFOBEjWGIGDfS1y54jIVs2LwE60yCny8wL57311t1U5ooc8vRmyUTLPXDFq4VbL9ud6dflZuC0p74Me9oXpJGmW-Z9yMEedHWOU2wNqvugHyOysZBIllbONfh084Qz6v_G0xdbSId9IWfgdS1oNnt"/>
+<div class="p-4 bg-primary/10 backdrop-blur-md rounded-lg rounded-tl-none text-on-surface">
+                        没问题，我马上开始优化一段15秒的动态序列，大约半小时后发你。
+                    </div>
+</div>
+</div>
+<!-- Chat Input Area -->
+<footer class="p-6 pt-2">
+<div class="glass-panel rounded-lg p-3 shadow-2xl flex items-end space-x-2 border border-white/40">
+<div class="flex space-x-1 pb-1">
+<button class="p-2 text-outline hover:text-primary transition-all rounded-full hover:bg-primary/5">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+<button class="p-2 text-outline hover:text-primary transition-all rounded-full hover:bg-primary/5">
+<span class="material-symbols-outlined" data-icon="mood">mood</span>
+</button>
+</div>
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface py-2 resize-none max-h-32 text-sm" placeholder="输入消息，快捷键 Enter 发送..." rows="1"></textarea>
+<button class="bg-primary hover:bg-primary-container text-white px-6 py-2 rounded-full font-bold transition-all shadow-lg shadow-primary/20 flex items-center space-x-2">
+<span class="text-sm">发送</span>
+<span class="material-symbols-outlined text-sm" data-icon="send">send</span>
+</button>
+</div>
+</footer>
+</section>
+<!-- Right Column: Context Sidebar -->
+<aside class="w-80 glass-panel border-l border-outline-variant/15 flex flex-col">
+<!-- Profile Card -->
+<div class="p-8 text-center space-y-4">
+<div class="relative inline-block">
+<img alt="林深见鹿" class="w-24 h-24 rounded-full border-4 border-white shadow-lg mx-auto" data-alt="high-quality profile photo of a male creative professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCksBEi9wtXVNRkML3jrp1W8x12ViFcYWJ1EdT6fP7jUWa83eQbd2U7oO5Cm1vYiW_eDjk-duDWyVT3v6aEG4RGf-_EK5F-aleT7IbDDt2Djv1DD6S9Z5rcOFzPcLwqf0ARwK7gwbdxphkBX-pJUTsbaFj8JANDVNh-W1T0nUl0dY7f4kzeee3XQ-PI6mfLj5aflJm_mfBj_IHiZ4hTqwYtlaX6NtbjWxQueqdHp-OQT_DFBpDyY8uOif1h71__ZrvZpuPMEHov8KJA"/>
+<div class="absolute bottom-1 right-1 w-6 h-6 bg-green-500 border-4 border-white rounded-full"></div>
+</div>
+<div>
+<h4 class="text-xl font-black">林深见鹿</h4>
+<div class="flex justify-center items-center space-x-1 mt-1">
+<span class="material-symbols-outlined text-yellow-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.9</span>
+<span class="text-xs text-outline ml-2">(128条评价)</span>
+</div>
+</div>
+<div class="flex flex-wrap justify-center gap-2">
+<span class="px-3 py-1 bg-primary/5 text-primary text-[11px] font-bold rounded-full">AI动画专家</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-bold rounded-full">Cinema 4D</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-bold rounded-full">Stable Diffusion</span>
+</div>
+</div>
+<!-- Related Project -->
+<div class="flex-1 px-6 space-y-6 overflow-y-auto pb-8">
+<div class="space-y-3">
+<p class="text-xs font-bold text-outline uppercase tracking-widest">关联项目</p>
+<div class="p-4 bg-surface-container-lowest rounded-lg shadow-sm border border-outline-variant/10">
+<h5 class="font-bold text-sm">AI短片角色动画师需求</h5>
+<p class="text-[11px] text-on-surface-variant mt-1 line-clamp-2">需要一名擅长AI流程的动画师，协助完成3分钟科幻短片的角色动态...</p>
+<div class="mt-3 flex justify-between items-center">
+<span class="text-primary font-bold text-sm">¥12,000</span>
+<span class="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] rounded">进行中</span>
+</div>
+</div>
+</div>
+<div class="space-y-3">
+<p class="text-xs font-bold text-outline uppercase tracking-widest">共享文件 (4)</p>
+<div class="space-y-2">
+<div class="flex items-center space-x-3 p-2 hover:bg-surface-container-low rounded-md transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-blue-500 bg-blue-50 p-2 rounded-md">image</span>
+<div class="flex-1 overflow-hidden">
+<p class="text-xs font-medium truncate">concept_art_v2.png</p>
+<p class="text-[10px] text-outline">2.4 MB · 2小时前</p>
+</div>
+<span class="material-symbols-outlined text-outline text-sm opacity-0 group-hover:opacity-100">download</span>
+</div>
+<div class="flex items-center space-x-3 p-2 hover:bg-surface-container-low rounded-md transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-orange-500 bg-orange-50 p-2 rounded-md">description</span>
+<div class="flex-1 overflow-hidden">
+<p class="text-xs font-medium truncate">storyboard_draft.pdf</p>
+<p class="text-[10px] text-outline">1.1 MB · 昨天</p>
+</div>
+<span class="material-symbols-outlined text-outline text-sm opacity-0 group-hover:opacity-100">download</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="p-6 border-t border-outline-variant/15 flex space-x-2">
+<button class="flex-1 py-2 text-xs font-bold border border-outline-variant rounded-full hover:bg-surface-container-low transition-all">
+                    查看完整资料
+                </button>
+<button class="p-2 text-on-surface-variant hover:text-error transition-all rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-sm">block</span>
+</button>
+</div>
+</aside>
+</main>
+</body></html>

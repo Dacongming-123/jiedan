@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#626267",
+                    "tertiary-container": "#c64f00",
+                    "surface-container-low": "#f3f3f8",
+                    "on-primary-fixed": "#001a41",
+                    "primary-fixed": "#d8e2ff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#e0dfe4",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "secondary": "#5d5e63",
+                    "surface-bright": "#f9f9fe",
+                    "tertiary-fixed": "#ffdbcc",
+                    "on-tertiary-fixed": "#351000",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#005bc1",
+                    "on-primary-fixed-variant": "#004493",
+                    "on-secondary-fixed": "#1a1b1f",
+                    "surface-variant": "#e2e2e7",
+                    "on-secondary-fixed-variant": "#46464b",
+                    "on-tertiary-fixed-variant": "#7c2e00",
+                    "tertiary": "#9e3d00",
+                    "surface-container-highest": "#e2e2e7",
+                    "on-surface-variant": "#414755",
+                    "surface-container": "#ededf2",
+                    "outline": "#717786",
+                    "on-primary-container": "#fefcff",
+                    "primary-container": "#0070eb",
+                    "surface-container-high": "#e8e8ed",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#adc6ff",
+                    "primary-fixed-dim": "#adc6ff",
+                    "surface": "#f9f9fe",
+                    "outline-variant": "#c1c6d7",
+                    "tertiary-fixed-dim": "#ffb595",
+                    "on-background": "#1a1c1f",
+                    "on-tertiary-container": "#fffbff",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#d9dade",
+                    "inverse-on-surface": "#f0f0f5",
+                    "on-surface": "#1a1c1f",
+                    "inverse-surface": "#2e3034",
+                    "secondary-fixed": "#e3e2e7",
+                    "background": "#f9f9fe",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#c6c6cb",
+                    "primary": "#0058bc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter", "PingFang SC"],
+                    "body": ["Inter", "PingFang SC"],
+                    "label": ["Inter", "PingFang SC"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', 'PingFang SC', sans-serif;
+            background-color: #f9f9fe;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .tonal-layering {
+            background-image: radial-gradient(at 0% 0%, rgba(0, 88, 188, 0.05) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(158, 61, 0, 0.03) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased tonal-layering min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold tracking-tight text-slate-900" style="">智创工坊</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 hover:text-slate-900 transition-opacity" href="#" style="">首页</a>
+<a class="text-slate-500 hover:text-slate-900 transition-opacity" href="#" style="">广场</a>
+<a class="text-blue-600 font-semibold border-b-2 border-blue-600 transition-opacity" href="#" style="">发布</a>
+<a class="text-slate-500 hover:text-slate-900 transition-opacity" href="#" style="">我的</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" style="">search</span>
+<input class="bg-surface-container-highest/50 border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary w-64" placeholder="搜索创作者..." type="text"/>
+</div>
+<button class="p-2 text-slate-600 hover:opacity-80 transition-opacity" style=""><span class="material-symbols-outlined" style="">notifications</span></button>
+<button class="p-2 text-slate-600 hover:opacity-80 transition-opacity" style=""><span class="material-symbols-outlined" style="">settings</span></button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="用户头像" class="" data-alt="close-up portrait of a professional modern character with a minimalist tech aesthetic and soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg74TP1pTGD_xbhTqJNEy3FHPYYeLNpL5e5SPeJdzLXXPKab6ji1zxFKKu208ispogt5Bdcb6IuXTsExTkUA5X8FvtJv2qv7UA7GS7Bg897nt3ApkjzZXPKWWrwEAYDMvEA8fjyzJ0B6URXwsYmvGsnnEIQhJX6oCkhhb_RGu30Heb4GklJVkk8riqBKIigUISi1FPrpyVJXypwTb25XQitKu-9pTZm89MzYzQVlQy05lvQj0ICcW3KPYh9XMcVVhtkqglQ9BAUYjF" style=""/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-5xl mx-auto">
+<!-- Hero Title Section -->
+<div class="mb-12">
+<h1 class="text-5xl font-extrabold text-on-surface tracking-tight mb-4" style="">发布您的创意需求</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed" style="">连接全球顶尖创作者。请详细描述您的想法，我们将为您精准匹配最合适的合作伙伴。</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Main Form Canvas -->
+<div class="lg:col-span-2 space-y-8">
+<section class="glass-panel rounded-lg p-8 shadow-sm">
+<h2 class="text-xl font-bold mb-6 flex items-center gap-2" style="">
+<span class="material-symbols-outlined text-primary" data-weight="fill" style="">description</span>
+                        基本信息
+                    </h2>
+<div class="space-y-6">
+<div class="group">
+<label class="block text-sm font-bold text-on-surface-variant mb-2" style="">需求名称</label>
+<input class="w-full bg-surface-container-low border-none rounded-md px-4 py-4 focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-slate-400 text-lg" placeholder="例如：品牌Logo设计、移动应用UI开发" type="text"/>
+</div>
+<div class="group">
+<label class="block text-sm font-bold text-on-surface-variant mb-2" style="">详细描述</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-md px-4 py-4 focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-slate-400 leading-relaxed" placeholder="请详细说明您的目标、受众以及具体产出要求..." rows="6"></textarea>
+</div>
+</div>
+</section>
+<section class="glass-panel rounded-lg p-8 shadow-sm">
+<h2 class="text-xl font-bold mb-6 flex items-center gap-2" style="">
+<span class="material-symbols-outlined text-primary" data-weight="fill" style="">payments</span>
+                        预算与期限
+                    </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<label class="block text-sm font-bold text-on-surface-variant mb-2" style="">项目预算 (CNY)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold" style="">¥</span>
+<input class="w-full bg-surface-container-low border-none rounded-md pl-8 pr-4 py-4 focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all" placeholder="输入预估金额" type="number"/>
+</div>
+<div class="flex gap-2 mt-3 overflow-x-auto no-scrollbar">
+<button class="px-4 py-1 rounded-full bg-surface-container-high text-xs text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-colors" style="">1k-5k</button>
+<button class="px-4 py-1 rounded-full bg-surface-container-high text-xs text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-colors" style="">5k-20k</button>
+<button class="px-4 py-1 rounded-full bg-surface-container-high text-xs text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-colors" style="">20k-100k</button>
+</div>
+</div>
+<div>
+<label class="block text-sm font-bold text-on-surface-variant mb-2" style="">交付期限</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" style="">calendar_today</span>
+<input class="w-full bg-surface-container-low border-none rounded-md pl-12 pr-4 py-4 focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all" type="date"/>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar Info & Controls -->
+<div class="space-y-6">
+<!-- Preview Card -->
+<div class="bg-primary p-8 rounded-lg text-white relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-20">
+<span class="material-symbols-outlined text-6xl" style='font-variation-settings: "FILL" 1;'>rocket_launch</span>
+</div>
+<h3 class="text-xl font-bold mb-2" style="">发布小贴士</h3>
+<p class="text-sm opacity-90 leading-relaxed mb-6" style="">
+                        清晰的需求描述可以提升匹配效率 30% 以上。建议上传参考图或竞品案例。
+                    </p>
+</div>
+<!-- Action Panel -->
+<div class="glass-panel rounded-lg p-6 space-y-4">
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm text-on-surface-variant" style="">需求质量</span>
+<span class="text-sm font-bold text-primary" style="">优秀</span>
+</div>
+<div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-4/5 rounded-full"></div>
+</div>
+<button class="w-full py-4 bg-gradient-to-br from-primary-container to-primary text-white rounded-full font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all" style="">
+                        立即发布需求
+                    </button>
+<button class="w-full py-4 bg-surface-container-high text-primary rounded-full font-bold hover:bg-surface-container-highest transition-colors" style="">
+                        保存为草稿
+                    </button>
+<p class="text-[10px] text-center text-slate-400 mt-4 px-4 leading-tight" style="">
+                        点击发布即表示您同意《智创工坊需求发布协议》及《知识产权保护条款》
+                    </p>
+</div>
+<!-- Reference Upload -->
+<div class="glass-panel rounded-lg p-6">
+<h3 class="text-sm font-bold mb-4" style="">参考附件 (可选)</h3>
+<div class="border-2 border-dashed border-outline-variant rounded-md p-8 flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-3xl text-slate-400" style="">upload_file</span>
+<span class="text-xs text-slate-500 text-center" style="">点击上传或拖拽文件至此<br/>(PDF, PNG, JPG, DOC)</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 pb-8 pt-3 bg-white/80 backdrop-blur-lg rounded-t-[3rem] shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined" style="">home</span>
+<span class="text-[10px] font-bold" style="">首页</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined" style="">explore</span>
+<span class="text-[10px] font-bold" style="">市场</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-100 text-blue-700 rounded-2xl px-5 py-1 scale-110 -translate-y-2">
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>add_circle</span>
+<span class="text-[10px] font-bold" style="">发布</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined" style="">account_circle</span>
+<span class="text-[10px] font-bold" style="">个人</span>
+</div>
+</nav>
+</body></html>

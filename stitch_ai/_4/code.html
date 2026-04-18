@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>需求详情 - The Digital Curator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+  body { font-family: 'Inter', "PingFang SC", "Microsoft YaHei", sans-serif; }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(193, 198, 215, 0.3);
+  }
+  .glass-header {
+    background: rgba(249, 249, 254, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(193, 198, 215, 0.15);
+  }
+  .thread-line {
+    position: absolute;
+    left: 15px;
+    top: 30px;
+    bottom: 0;
+    width: 2px;
+    background: rgba(193, 198, 215, 0.3);
+    transition: background 0.2s;
+  }
+  .comment-group:hover > .thread-line {
+    background: #0058bc;
+  }
+</style>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "secondary": "#5d5e63",
+                "on-secondary-container": "#626267",
+                "surface-variant": "#e2e2e7",
+                "on-secondary-fixed-variant": "#46464b",
+                "surface-container-highest": "#e2e2e7",
+                "on-secondary": "#ffffff",
+                "tertiary-fixed": "#ffdbcc",
+                "surface-container-lowest": "#ffffff",
+                "inverse-primary": "#adc6ff",
+                "surface": "#f9f9fe",
+                "on-tertiary-fixed-variant": "#7c2e00",
+                "primary-container": "#0070eb",
+                "on-surface-variant": "#414755",
+                "on-primary": "#ffffff",
+                "surface-bright": "#f9f9fe",
+                "outline-variant": "#c1c6d7",
+                "error-container": "#ffdad6",
+                "on-background": "#1a1c1f",
+                "on-tertiary-fixed": "#351000",
+                "on-surface": "#1a1c1f",
+                "primary-fixed-dim": "#adc6ff",
+                "on-tertiary": "#ffffff",
+                "error": "#ba1a1a",
+                "background": "#f9f9fe",
+                "inverse-surface": "#2e3034",
+                "secondary-fixed-dim": "#c6c6cb",
+                "surface-container-low": "#f3f3f8",
+                "surface-dim": "#d9dade",
+                "on-error": "#ffffff",
+                "surface-container-high": "#e8e8ed",
+                "secondary-fixed": "#e3e2e7",
+                "primary-fixed": "#d8e2ff",
+                "on-primary-fixed-variant": "#004493",
+                "surface-tint": "#005bc1",
+                "tertiary-container": "#c64f00",
+                "tertiary-fixed-dim": "#ffb595",
+                "inverse-on-surface": "#f0f0f5",
+                "on-tertiary-container": "#fffbff",
+                "secondary-container": "#e0dfe4",
+                "surface-container": "#ededf2",
+                "primary": "#0058bc",
+                "on-error-container": "#93000a",
+                "tertiary": "#9e3d00",
+                "on-primary-fixed": "#001a41",
+                "on-primary-container": "#fefcff",
+                "on-secondary-fixed": "#1a1b1f",
+                "outline": "#717786"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.75rem",
+                "lg": "1.5rem",
+                "xl": "2.5rem",
+                "full": "9999px"
+        }
+      },
+    },
+  }
+</script>
+</head>
+<body class="bg-surface text-on-surface min-h-screen antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 sm:px-10 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1 w-full bg-surface-container-low rounded-xl overflow-hidden relative shadow-[0_20px_60px_-10px_rgba(26,28,31,0.06)] border border-outline-variant/20">
+<!-- Header -->
+<header class="glass-header sticky top-0 z-20 flex items-center justify-between whitespace-nowrap px-6 py-3">
+<div class="flex items-center gap-4 text-on-surface">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-surface-variant transition-colors group">
+<span class="material-symbols-outlined text-on-surface group-hover:text-primary transition-colors">arrow_back</span>
+</button>
+<h2 class="text-on-surface text-lg font-bold leading-tight tracking-[0.01em]">需求详情</h2>
+</div>
+<div class="flex gap-2">
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-9 bg-surface-container-highest text-primary gap-2 text-sm font-bold px-3 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-9 bg-surface-container-highest text-primary gap-2 text-sm font-bold px-3 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<div class="flex flex-col flex-1 p-4 sm:p-6 gap-4">
+<!-- Post Content Container -->
+<div class="flex-1 glass-card rounded-lg p-5 shadow-sm">
+<!-- Post Header with Meta and Action Buttons -->
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] text-primary">person</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">u/产品经理小王</span>
+<span class="text-[11px] text-outline leading-none mt-0.5">2小时前发布</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-1.5 rounded-full border border-outline-variant hover:bg-surface-variant text-primary text-xs font-bold transition-all">私信</button>
+<button class="px-4 py-1.5 rounded-full bg-primary text-on-primary text-xs font-bold shadow-sm hover:shadow-md transition-all">我要接单</button>
+</div>
+</div>
+<h1 class="text-on-surface text-2xl font-bold leading-tight tracking-tight mb-4">需要一位全栈开发工程师，开发电商后台管理系统</h1>
+<div class="prose prose-sm max-w-none text-on-surface-variant leading-relaxed mb-6">
+<p>我们正在寻找一位有经验的开发人员，熟悉 React 和 Node.js。项目周期大约为 1 个月。</p>
+<p class="mt-2">主要工作：</p>
+<ul class="list-disc ml-4 mt-2">
+<li>独立完成前后端对接</li>
+<li>具备良好的代码规范和沟通能力</li>
+<li>实现复杂的图表统计和权限管理模块</li>
+</ul>
+<p class="mt-2 text-primary font-medium">如有相关电商项目经验者优先考虑。</p>
+</div>
+<div class="flex items-center gap-2 mb-6">
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed text-[10px] font-bold uppercase tracking-wider">React</span>
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed text-[10px] font-bold uppercase tracking-wider">Node.js</span>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase tracking-wider">全栈</span>
+</div>
+<!-- Post Action Bar -->
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/30">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1.5 text-xs font-bold text-outline hover:bg-surface-variant/50 px-2 py-1.5 rounded transition-colors">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+<span>12 条评论</span>
+</button>
+<button class="flex items-center gap-1.5 text-xs font-bold text-outline hover:bg-surface-variant/50 px-2 py-1.5 rounded transition-colors">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span>分享</span>
+</button>
+<button class="flex items-center gap-1.5 text-xs font-bold text-outline hover:bg-surface-variant/50 px-2 py-1.5 rounded transition-colors">
+<span class="material-symbols-outlined text-[18px]">bookmark</span>
+<span>收藏</span>
+</button>
+<button class="flex items-center gap-1.5 text-xs font-bold text-outline hover:bg-surface-variant/50 px-2 py-1.5 rounded transition-colors">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+<span>点赞 (1.2k)</span>
+</button>
+</div>
+<!-- Compact Comment Input -->
+<div class="flex-1 max-w-[280px] ml-4">
+<button class="w-full flex items-center gap-2 bg-surface-container-high/50 hover:bg-surface-variant/70 border border-outline-variant/30 rounded-full px-4 py-2 text-outline text-xs text-left transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span>发布你的评论...</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Comments Section -->
+<div class="flex flex-col gap-4 mt-2">
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+<h3 class="text-sm font-bold text-on-surface">创作者回复 (12)</h3>
+<div class="flex items-center gap-1 text-xs text-outline cursor-pointer hover:text-primary">
+<span>排序方式: 最佳</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+</div>
+<!-- Comment Tree Container -->
+<div class="flex flex-col gap-0" id="comments-list">
+<!-- Comment 1 (Top Level) -->
+<div class="comment-group relative pl-0 pt-2 pb-4">
+<div class="thread-line"></div>
+<div class="flex gap-3">
+<!-- Comment Body -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<div class="w-6 h-6 rounded-full bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBwbAMXJMLc_puWo9Vbw383o6p5mDoIuJKfuJpYmEn2laPDL1i26maNlUg2YaxT4Lrp6vzwx6Msfrm4oJXmCavdu4hU2NDEeMN7OFbae36pt42_dQm7s4WeO_emo_RlujQP4uXcUDekI6_QLzYPsAI5rQmOgclBUB_ijZBs-Ql7J-oZ8yPLnbbj6mXWZ4trTV6UsMeDOj3p9_7tUkpLMUckYg7UAwxn6IWqwB9eGPXbT4U-vRtShGtjtVQkiPwoEjLgu5jAroIIEhR7');"></div>
+<span class="text-[12px] font-bold">李明</span>
+<span class="text-[11px] text-outline">刚刚</span>
+</div>
+<p class="text-[13px] text-on-surface-variant leading-normal mb-2">我对这个项目很感兴趣，已私信发了我的作品集，期待您的回复。我有 3 年 React Native 经验，做过两个大型电商 App。</p>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1 text-[11px] font-bold text-outline hover:text-primary"><span class="material-symbols-outlined text-[16px]">thumb_up</span><span>15</span></button>
+<button class="flex items-center gap-1 text-[11px] font-bold text-outline hover:text-primary"><span class="material-symbols-outlined text-[16px]">reply</span><span>回复</span></button>
+<button class="flex items-center gap-1 text-[11px] font-bold text-outline hover:text-primary"><span>分享</span></button>
+</div>
+<!-- Nested Reply (Level 1) -->
+<div class="mt-4 pl-4 border-l-2 border-outline-variant/20 relative">
+<div class="flex gap-3">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<div class="w-6 h-6 rounded-full bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDs7DgXxlvyTv6OT7VtFjMWLqOc_f_KIZPvFFENK3lHv9INYByha856q7-5PBlHtS87v2X9BtEBBBs4Hux8S_-lfxw5VRCA8tm2n2zuImLIn7ZeTvTyZOKGqCiiLQIFdg5rCNvTwCa8dd7mi18I2rYf8zjaHuwhDvIKAHbKyn899gDMvMfPOE9mUB8y6vV30p1065wcQ60qAXmh43u_jot5vYog80Jpk6OnJS9ylucA7VUEK5fG1TtqRYSkv9rSzxv2EVA3fZ6teRru');"></div>
+<span class="text-[12px] font-bold">张伟</span>
+<span class="text-[11px] text-outline">10分钟前</span>
+</div>
+<p class="text-[13px] text-on-surface-variant leading-normal mb-2">作品集我看过，你的 UI 设计感很强，确实适合这种电商后台。</p>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1 text-[11px] font-bold text-outline hover:text-primary"><span class="material-symbols-outlined text-[16px]">thumb_up</span><span>3</span></button>
+<button class="flex items-center gap-1 text-[11px] font-bold text-outline hover:text-primary"><span class="material-symbols-outlined text-[16px]">reply</span><span>回复</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Comment 2 -->
+<div class="comment-group relative pl-0 pt-4 pb-4 border-t border-outline-variant/10">
+<div class="thread-line"></div>
+<div class="flex gap-3">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<div class="w-6 h-6 rounded-full bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAr8H5bhWfwSsT_XpEKO5fHp-Wqodd_8TQh0hQHTfw3OIa9bnuDBSx00fXCI7WmtVF38SEpveNRtr2gpLceshzNGftSIeyHABCLzVm1q89P86twAuB96QzIznZiI7KbidQNcY29LP2dBI7C5Bwrs7uAK5GimJsSt_wcRiSrTf2Z6CzDtcHLmbkSf-ZAOwbTAMWeHXwLBG7Y_Avcc9hYHY9CvdzvaieZHnq71yymCunr9nAt6xs1G0Tyagm7x1P2kqMVoojoX2oxo5VI');"></div>
+<span class="text-[12px] font-bold">王磊</span>
+<span class="text-[11px] text-outline">30分钟前</span>
+</div>
+<p class="text-[13px] text-on-surface-variant leading-normal mb-2">时间刚好合适，平时主要用 Next.js，Node 端熟悉 NestJS，不知道技术栈是否匹配？如果需要服务端渲染，我可以提供一套现成的方案。</p>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1 text-[11px] font-bold text-outline hover:text-primary"><span class="material-symbols-outlined text-[16px]">thumb_up</span><span>42</span></button>
+<button class="flex items-center gap-1 text-[11px] font-bold text-outline hover:text-primary"><span class="material-symbols-outlined text-[16px]">reply</span><span>回复</span></button>
+<button class="flex items-center gap-1 text-[11px] font-bold text-outline hover:text-primary"><span>分享</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Comment 3 -->
+<div class="comment-group relative pl-0 pt-4 pb-4 border-t border-outline-variant/10">
+<div class="thread-line"></div>
+<div class="flex gap-3">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<div class="w-6 h-6 rounded-full bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCKGieNEk2nbK6hHP_WxhkD8IHeb0S2zUHsptVMvVBTPNKQhbeay56GEpw-rdnXIre9mgfVpJKUwJSovIn3wVAMV_UpJSciJVlG0pNUt28Z7-jQ_p9ltM8qnUQ9PUc-_5uVw_lk9yB-DAXnK5AuXOzrf41Rzk5P4Ini86KEZISBLjkrfIZinNIsAafU6SWcVPtdKEmBEyuHOX518qKDz9iNXPPAX53BdGZD6o6v9kf0qbkZ-dI2YkV2k5TXc1UDXYTfMaSZtIDU-LTg');"></div>
+<span class="text-[12px] font-bold">刘洋</span>
+<span class="text-[11px] text-outline">1小时前</span>
+</div>
+<p class="text-[13px] text-on-surface-variant leading-normal mb-2">价格方面有大概的预算范围吗？可以先沟通下具体需求细节。</p>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1 text-[11px] font-bold text-outline hover:text-primary"><span class="material-symbols-outlined text-[16px]">thumb_up</span><span>8</span></button>
+<button class="flex items-center gap-1 text-[11px] font-bold text-outline hover:text-primary"><span class="material-symbols-outlined text-[16px]">reply</span><span>回复</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action -->
+<div class="mt-4 flex justify-center">
+<button class="bg-primary text-on-primary font-bold text-sm rounded-full px-10 py-3 shadow-lg hover:shadow-xl hover:translate-y-[-1px] transition-all duration-200">
+      查看更多评论
+    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</body></html>

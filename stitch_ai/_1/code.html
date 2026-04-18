@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#626267",
+                        "tertiary-container": "#c64f00",
+                        "surface-container-low": "#f3f3f8",
+                        "on-primary-fixed": "#001a41",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#e0dfe4",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary": "#5d5e63",
+                        "surface-bright": "#f9f9fe",
+                        "tertiary-fixed": "#ffdbcc",
+                        "on-tertiary-fixed": "#351000",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#005bc1",
+                        "on-primary-fixed-variant": "#004493",
+                        "on-secondary-fixed": "#1a1b1f",
+                        "surface-variant": "#e2e2e7",
+                        "on-secondary-fixed-variant": "#46464b",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "tertiary": "#9e3d00",
+                        "surface-container-highest": "#e2e2e7",
+                        "on-surface-variant": "#414755",
+                        "surface-container": "#ededf2",
+                        "outline": "#717786",
+                        "on-primary-container": "#fefcff",
+                        "primary-container": "#0070eb",
+                        "surface-container-high": "#e8e8ed",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#adc6ff",
+                        "primary-fixed-dim": "#adc6ff",
+                        "surface": "#f9f9fe",
+                        "outline-variant": "#c1c6d7",
+                        "tertiary-fixed-dim": "#ffb595",
+                        "on-background": "#1a1c1f",
+                        "on-tertiary-container": "#fffbff",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d9dade",
+                        "inverse-on-surface": "#f0f0f5",
+                        "on-surface": "#1a1c1f",
+                        "inverse-surface": "#2e3034",
+                        "secondary-fixed": "#e3e2e7",
+                        "background": "#f9f9fe",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#c6c6cb",
+                        "primary": "#0058bc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "Noto Sans SC"],
+                        "body": ["Inter", "Noto Sans SC"],
+                        "label": ["Inter", "Noto Sans SC"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9f9fe;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+        }
+        .tonal-shift {
+            background-color: rgba(243, 243, 248, 0.1);
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 2s linear infinite;
+        }
+        /* Custom scrollbar for better UI */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased">
+<!-- TopNavBar Shell -->
+<nav class="shrink-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto font-['Inter','PingFang_SC'] leading-relaxed">
+<div class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white" style="">智创工坊</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 hover:opacity-80 transition-opacity" href="#" style="">首页</a>
+<a class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600" href="#" style="">广场</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 hover:opacity-80 transition-opacity" href="#" style="">发布</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 hover:opacity-80 transition-opacity" href="#" style="">我的</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:opacity-80 transition-opacity" style="">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:opacity-80 transition-opacity" style="">settings</button>
+<img alt="用户头像" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgOf3OmqmoUrubyVlKxIfHqVerq0by99q2-oRRaz4BgFdAqmjaHnQXFjn0eG9Vim1qRy-CyMsA7elV7yiAsa_K1ZHMDO5dln50LG598An0-w_e2BveqmpKrXLfDu1af5eDecSSJp4JlI0X-Xd2PllfB87kQTOJF59A5m_NVMPElsf6-2xFkNQjpExJTJA0O8-_qXGjYj1q8D95dMQoEc5YY2FiYhv6ZFDDaD4sLL1E5AitXAEzwGWGhRVjKQ54wCkryuyz2qPlJmEX" style=""/>
+</div>
+</div>
+</nav>
+<main class="flex-1 overflow-hidden relative flex flex-col items-center">
+<!-- Abstract Background Elements -->
+<div class="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+<div class="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[10%] -right-[5%] w-[40%] h-[40%] bg-tertiary-container/5 rounded-full blur-[100px]"></div>
+</div>
+<div class="max-w-7xl w-full h-full flex flex-col px-6">
+<!-- Header Section (Remains at top, fixed relative to the content area) -->
+<div class="py-10 text-center shrink-0">
+<h1 class="text-5xl font-bold tracking-tight text-on-surface mb-4" style="">需求广场</h1>
+<p class="text-lg text-on-surface-variant max-w-2xl mx-auto" style="">浏览最新的 AI 创作需求，发挥您的才华赚取报酬</p>
+</div>
+<!-- Content Grid with scrollable right area -->
+<div class="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 overflow-hidden pb-12">
+<!-- Left Sidebar (Search & Filters) - Non-scrollable -->
+<div class="lg:col-span-3 space-y-6 hidden lg:block overflow-y-auto pr-2 custom-scrollbar">
+<div class="bg-white/50 backdrop-blur-md rounded-lg p-6 shadow-sm border border-white/40">
+<h3 class="text-sm font-bold text-outline-variant uppercase tracking-widest mb-4" style="">搜索与筛选</h3>
+<div class="space-y-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" style="">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-white/60 border border-outline-variant/30 rounded-md focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm" placeholder="搜索需求关键词..." type="text"/>
+</div>
+<div>
+<label class="block text-xs font-semibold mb-2 text-on-surface-variant" style="">预算范围</label>
+<select class="w-full px-3 py-2 bg-white/60 border border-outline-variant/30 rounded-md text-sm outline-none">
+<option>不限金额</option>
+<option>¥0 - ¥1,000</option>
+<option>¥1,000 - ¥5,000</option>
+<option>¥5,000+</option>
+</select>
+</div><div>
+<label class="block text-xs font-semibold mb-2 text-on-surface-variant" style="">项目类别</label>
+<select class="w-full px-3 py-2 bg-white/60 border border-outline-variant/30 rounded-md text-sm outline-none">
+<option>全部</option>
+<option>3天内</option>
+<option>1周内</option>
+<option>1个月内</option>
+<option>长期项目</option>
+</select>
+</div>
+<button class="w-full py-2 bg-primary text-white rounded-md text-sm font-bold hover:bg-primary/90 transition-colors" style="">应用筛选</button>
+</div>
+</div>
+<!-- Tips Section -->
+<div class="bg-primary/5 rounded-lg p-6 border border-primary/10">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary" style="">campaign</span>
+<h3 class="font-bold" style="">接单贴士</h3>
+</div>
+<ul class="space-y-3">
+<li class="flex gap-2 text-xs leading-relaxed text-on-surface-variant" style="">
+<div class="w-1 h-1 rounded-full bg-primary mt-1.5 shrink-0"></div>
+<span class="" style="">完善个人主页作品集可大幅提升中标率。</span>
+</li>
+<li class="flex gap-2 text-xs leading-relaxed text-on-surface-variant" style="">
+<div class="w-1 h-1 rounded-full bg-primary mt-1.5 shrink-0"></div>
+<span class="" style="">响应速度是雇主评估的重要指标之一。</span>
+</li>
+<li class="flex gap-2 text-xs leading-relaxed text-on-surface-variant" style="">
+<div class="w-1 h-1 rounded-full bg-primary mt-1.5 shrink-0"></div>
+<span class="" style="">平台担保交易，资金放心安全。</span>
+</li></ul>
+</div>
+</div>
+<!-- Main Demand List Area - ONLY THIS SCROLLS -->
+<div class="col-span-1 lg:col-span-9 space-y-6 overflow-y-auto pr-2 custom-scrollbar">
+<!-- Demand Card 1 -->
+<div class="glass-card rounded-lg p-6 shadow-sm border border-white/40 hover:shadow-md transition-shadow group">
+<div class="flex flex-col md:flex-row justify-between items-start gap-4">
+<div class="flex gap-4 flex-1">
+<img alt="雇主头像" class="w-12 h-12 rounded-full object-cover border-2 border-primary/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgOf3OmqmoUrubyVlKxIfHqVerq0by99q2-oRRaz4BgFdAqmjaHnQXFjn0eG9Vim1qRy-CyMsA7elV7yiAsa_K1ZHMDO5dln50LG598An0-w_e2BveqmpKrXLfDu1af5eDecSSJp4JlI0X-Xd2PllfB87kQTOJF59A5m_NVMPElsf6-2xFkNQjpExJTJA0O8-_qXGjYj1q8D95dMQoEc5YY2FiYhv6ZFDDaD4sLL1E5AitXAEzwGWGhRVjKQ54wCkryuyz2qPlJmEX" style=""/>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-bold text-on-surface" style="">TechInnovator</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary-fixed text-on-primary-fixed uppercase" style="">企业雇主</span>
+</div>
+<h2 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors mb-2" style="">急需角色动画美术师 - AI 风格迁移项目</h2>
+<p class="text-sm text-on-surface-variant line-clamp-2 leading-relaxed mb-4" style="">我们需要一位擅长角色骨架动画的设计师，协助完成一个基于 AI 视频生成的技术演示项目。需要提供 5 组基础行走和战斗动作...</p>
+<div class="flex flex-wrap gap-3 items-center">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-xs font-medium text-on-surface-variant" style="">视觉设计</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-xs font-medium text-on-surface-variant" style="">AE/C4D</span>
+<div class="h-4 w-px bg-outline-variant/30 mx-1"></div>
+<span class="text-xs text-outline flex items-center gap-1" style=""><span class="material-symbols-outlined text-sm" style="">schedule</span> 2小时前发布</span>
+<span class="text-xs text-outline flex items-center gap-1" style=""><span class="material-symbols-outlined text-sm" style="">group</span> 12人已响应</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-4 min-w-[140px]">
+<div class="text-2xl font-bold text-tertiary" style="">¥3,500 - ¥5,000</div>
+<button class="w-full px-6 py-2.5 rounded-full font-bold text-white bg-primary hover:bg-primary/90 shadow-sm transition-all" style="">查看详情</button>
+</div>
+</div>
+</div>
+<!-- Demand Card 2 -->
+<div class="glass-card rounded-lg p-6 shadow-sm border border-white/40 hover:shadow-md transition-shadow group">
+<div class="flex flex-col md:flex-row justify-between items-start gap-4">
+<div class="flex gap-4 flex-1">
+<img alt="雇主头像" class="w-12 h-12 rounded-full object-cover border-2 border-primary/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL3CXfTjVbee5XAsixNhHEpdfLHdwGEcMRvdAUL4OAArdkXVhJoCSXDEx4njxuFzYOSsR1ry1CRSgFaZjpQiEfPhL_7QkpNh840t9dtn59iB_SubSgPgTyOG4isBup4C4Qlxw0ZqLVLEn46d_Zxqte9AduWxzP5FRTp4l3wzVaqq0FhN78DfJj_1JEpOONdoGUfsBdw4rdPL8TSJj7WsjMeOXq8VTMOunasFGTwWruWx9zmbliXk_UfH_0qMtLWP1HbEPpcBn8DD97" style=""/>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-bold text-on-surface" style="">次元之壁</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-secondary-container text-on-secondary-container uppercase" style="">资深雇主</span>
+</div>
+<h2 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors mb-2" style="">寻找 AI Lora 模型训练专家 (二次元风格)</h2>
+<p class="text-sm text-on-surface-variant line-clamp-2 leading-relaxed mb-4" style="">寻求一位精通 Stable Diffusion 的专家，帮助我针对特定画师风格进行 Lora 模型训练。需要对素材预处理和打标有丰富经验...</p>
+<div class="flex flex-wrap gap-3 items-center">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-xs font-medium text-on-surface-variant" style="">技术开发</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-xs font-medium text-on-surface-variant" style="">AI 训练</span>
+<div class="h-4 w-px bg-outline-variant/30 mx-1"></div>
+<span class="text-xs text-outline flex items-center gap-1" style=""><span class="material-symbols-outlined text-sm" style="">schedule</span> 5小时前发布</span>
+<span class="text-xs text-outline flex items-center gap-1" style=""><span class="material-symbols-outlined text-sm" style="">group</span> 5人已响应</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-4 min-w-[140px]">
+<div class="text-2xl font-bold text-tertiary" style="">¥1,200 / 个</div>
+<button class="w-full px-6 py-2.5 rounded-full font-bold text-white bg-primary hover:bg-primary/90 shadow-sm transition-all" style="">查看详情</button>
+</div>
+</div>
+</div>
+<!-- Demand Card 3 -->
+<div class="glass-card rounded-lg p-6 shadow-sm border border-white/40 hover:shadow-md transition-shadow group">
+<div class="flex flex-col md:flex-row justify-between items-start gap-4">
+<div class="flex gap-4 flex-1">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold" style="">小</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-bold text-on-surface" style="">小王工作室</span>
+</div>
+<h2 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors mb-2" style="">电商产品 AI 模特换装批量修图需求</h2>
+<p class="text-sm text-on-surface-variant line-clamp-2 leading-relaxed mb-4" style="">约 200 张服装平铺图，需要利用 AI 模特进行合成。要求光影自然，细节还原度高。长期合作优先...</p>
+<div class="flex flex-wrap gap-3 items-center">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-xs font-medium text-on-surface-variant" style="">后期修图</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-xs font-medium text-on-surface-variant" style="">电商</span>
+<div class="h-4 w-px bg-outline-variant/30 mx-1"></div>
+<span class="text-xs text-outline flex items-center gap-1" style=""><span class="material-symbols-outlined text-sm" style="">schedule</span> 昨日发布</span>
+<span class="text-xs text-outline flex items-center gap-1" style=""><span class="material-symbols-outlined text-sm" style="">group</span> 28人已响应</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-4 min-w-[140px]">
+<div class="text-2xl font-bold text-tertiary" style="">¥8,000 - ¥12,000</div>
+<button class="w-full px-6 py-2.5 rounded-full font-bold text-white bg-primary hover:bg-primary/90 shadow-sm transition-all" style="">查看详情</button>
+</div>
+</div>
+</div>
+<!-- Demand Card 4 -->
+<div class="glass-card rounded-lg p-6 shadow-sm border border-white/40 hover:shadow-md transition-shadow group">
+<div class="flex flex-col md:flex-row justify-between items-start gap-4">
+<div class="flex gap-4 flex-1">
+<div class="w-12 h-12 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary font-bold" style="">L</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-bold text-on-surface" style="">LogoMaster AI</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary-fixed text-on-primary-fixed uppercase" style="">专业设计</span>
+</div>
+<h2 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors mb-2" style="">利用 Midjourney 辅助进行品牌 Logo 升级</h2>
+<p class="text-sm text-on-surface-variant line-clamp-2 leading-relaxed mb-4" style="">我们需要一名擅长 MJ 提示词工程的设计师，为一家科技公司生成 50 组极简主义 Logo 雏形，并进行后期矢量化调整。</p>
+<div class="flex flex-wrap gap-3 items-center">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-xs font-medium text-on-surface-variant" style="">品牌设计</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-xs font-medium text-on-surface-variant" style="">Midjourney</span>
+<div class="h-4 w-px bg-outline-variant/30 mx-1"></div>
+<span class="text-xs text-outline flex items-center gap-1" style=""><span class="material-symbols-outlined text-sm" style="">schedule</span> 10小时前发布</span>
+<span class="text-xs text-outline flex items-center gap-1" style=""><span class="material-symbols-outlined text-sm" style="">group</span> 8人已响应</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-4 min-w-[140px]">
+<div class="text-2xl font-bold text-tertiary" style="">¥2,000 - ¥3,500</div>
+<button class="w-full px-6 py-2.5 rounded-full font-bold text-white bg-primary hover:bg-primary/90 shadow-sm transition-all" style="">查看详情</button>
+</div>
+</div>
+</div>
+<!-- Demand Card 5 -->
+<div class="glass-card rounded-lg p-6 shadow-sm border border-white/40 hover:shadow-md transition-shadow group">
+<div class="flex flex-col md:flex-row justify-between items-start gap-4">
+<div class="flex gap-4 flex-1">
+<img alt="雇主头像" class="w-12 h-12 rounded-full object-cover border-2 border-primary/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYF_r_tC_7Zt_E7uN4E_fXW_v7qXwZ_O_jE0I0N4_Y_Z_G_L_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X" style=""/>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-bold text-on-surface" style="">极客文库</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-secondary-container text-on-secondary-container uppercase" style="">内容平台</span>
+</div>
+<h2 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors mb-2" style="">寻找 AI 剧本创作助手 - 悬疑短剧方向</h2>
+<p class="text-sm text-on-surface-variant line-clamp-2 leading-relaxed mb-4" style="">利用 LLM（如 GPT-4 或 Claude 3）协助构思、扩写 10 集悬疑类短视频剧本。需要对反转点有精准把控。</p>
+<div class="flex flex-wrap gap-3 items-center">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-xs font-medium text-on-surface-variant" style="">内容创作</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-xs font-medium text-on-surface-variant" style="">Prompt Engineering</span>
+<div class="h-4 w-px bg-outline-variant/30 mx-1"></div>
+<span class="text-xs text-outline flex items-center gap-1" style=""><span class="material-symbols-outlined text-sm" style="">schedule</span> 15小时前发布</span>
+<span class="text-xs text-outline flex items-center gap-1" style=""><span class="material-symbols-outlined text-sm" style="">group</span> 19人已响应</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-4 min-w-[140px]">
+<div class="text-2xl font-bold text-tertiary" style="">¥400 / 每集</div>
+<button class="w-full px-6 py-2.5 rounded-full font-bold text-white bg-primary hover:bg-primary/90 shadow-sm transition-all" style="">查看详情</button>
+</div>
+</div>
+</div>
+<!-- Demand Card 6 -->
+<div class="glass-card rounded-lg p-6 shadow-sm border border-white/40 hover:shadow-md transition-shadow group">
+<div class="flex flex-col md:flex-row justify-between items-start gap-4">
+<div class="flex gap-4 flex-1">
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary font-bold" style="">V</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-bold text-on-surface" style="">Visionary Lab</span>
+</div>
+<h2 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors mb-2" style="">基于 ComfyUI 的工作流定制 (商业级图像后期)</h2>
+<p class="text-sm text-on-surface-variant line-clamp-2 leading-relaxed mb-4" style="">为我们的摄影工作室定制一套自动高清修复 + 局部重绘的 ComfyUI 工作流。需要包含自定义节点配置说明文档。</p>
+<div class="flex flex-wrap gap-3 items-center">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-xs font-medium text-on-surface-variant" style="">技术开发</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-xs font-medium text-on-surface-variant" style="">ComfyUI</span>
+<div class="h-4 w-px bg-outline-variant/30 mx-1"></div>
+<span class="text-xs text-outline flex items-center gap-1" style=""><span class="material-symbols-outlined text-sm" style="">schedule</span> 昨天发布</span>
+<span class="text-xs text-outline flex items-center gap-1" style=""><span class="material-symbols-outlined text-sm" style="">group</span> 3人已响应</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-4 min-w-[140px]">
+<div class="text-2xl font-bold text-tertiary" style="">¥4,500 - ¥6,000</div>
+<button class="w-full px-6 py-2.5 rounded-full font-bold text-white bg-primary hover:bg-primary/90 shadow-sm transition-all" style="">查看详情</button>
+</div>
+</div>
+</div>
+<!-- Demand Card 7 -->
+<div class="glass-card rounded-lg p-6 shadow-sm border border-white/40 hover:shadow-md transition-shadow group">
+<div class="flex flex-col md:flex-row justify-between items-start gap-4">
+<div class="flex gap-4 flex-1">
+<img alt="雇主头像" class="w-12 h-12 rounded-full object-cover border-2 border-primary/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-oGvP_tY3z_M_W_G_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X" style=""/>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-bold text-on-surface" style="">梦幻岛游戏</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary-fixed text-on-primary-fixed uppercase" style="">大厂直聘</span>
+</div>
+<h2 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors mb-2" style="">AI 生成 3D 模型纹理贴图专家</h2>
+<p class="text-sm text-on-surface-variant line-clamp-2 leading-relaxed mb-4" style="">利用 AI 工具（如 PolyPigeon 或 Substance AI）为 50 组游戏场景模型生成高质量 PBR 贴图。要求材质感真实。</p>
+<div class="flex flex-wrap gap-3 items-center">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-xs font-medium text-on-surface-variant" style="">3D 美术</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-xs font-medium text-on-surface-variant" style="">AI 纹理</span>
+<div class="h-4 w-px bg-outline-variant/30 mx-1"></div>
+<span class="text-xs text-outline flex items-center gap-1" style=""><span class="material-symbols-outlined text-sm" style="">schedule</span> 1天前发布</span>
+<span class="text-xs text-outline flex items-center gap-1" style=""><span class="material-symbols-outlined text-sm" style="">group</span> 14人已响应</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-4 min-w-[140px]">
+<div class="text-2xl font-bold text-tertiary" style="">¥15,000+</div>
+<button class="w-full px-6 py-2.5 rounded-full font-bold text-white bg-primary hover:bg-primary/90 shadow-sm transition-all" style="">查看详情</button>
+</div>
+</div>
+</div>
+<!-- Infinite Scroll Indicator -->
+<div class="pt-8 pb-8 flex justify-center opacity-30 shrink-0">
+<div class="w-1.5 h-1.5 bg-outline rounded-full mx-1 animate-bounce [animation-delay:-0.3s]"></div>
+<div class="w-1.5 h-1.5 bg-outline rounded-full mx-1 animate-bounce [animation-delay:-0.15s]"></div>
+<div class="w-1.5 h-1.5 bg-outline rounded-full mx-1 animate-bounce"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 pb-8 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg rounded-t-[3rem] shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 tap-highlight-none" href="#" style="">
+<span class="material-symbols-outlined" style="">home</span>
+<span class="text-[10px] font-bold" style="">首页</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-200 rounded-2xl px-5 py-1 active:scale-90 tap-highlight-none" href="#" style="">
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>explore</span>
+<span class="text-[10px] font-bold" style="">广场</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 tap-highlight-none" href="#" style="">
+<span class="material-symbols-outlined" style="">add_circle</span>
+<span class="text-[10px] font-bold" style="">发布</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 tap-highlight-none" href="#" style="">
+<span class="material-symbols-outlined" style="">account_circle</span>
+<span class="text-[10px] font-bold" style="">个人</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>登录 - The Digital Curator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffdbcc",
+                        "inverse-surface": "#2e3034",
+                        "surface-dim": "#d9dade",
+                        "surface": "#f9f9fe",
+                        "on-secondary-fixed-variant": "#46464b",
+                        "on-surface": "#1a1c1f",
+                        "secondary-fixed": "#e3e2e7",
+                        "inverse-primary": "#adc6ff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb595",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c1c6d7",
+                        "secondary-container": "#e0dfe4",
+                        "primary-container": "#0070eb",
+                        "on-primary-container": "#fefcff",
+                        "inverse-on-surface": "#f0f0f5",
+                        "surface-tint": "#005bc1",
+                        "primary": "#0058bc",
+                        "secondary": "#5d5e63",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "background": "#f9f9fe",
+                        "on-tertiary-container": "#fffbff",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e2e2e7",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-container-highest": "#e2e2e7",
+                        "secondary-fixed-dim": "#c6c6cb",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-container-low": "#f3f3f8",
+                        "on-secondary-container": "#626267",
+                        "primary-fixed-dim": "#adc6ff",
+                        "surface-container": "#ededf2",
+                        "on-surface-variant": "#414755",
+                        "on-primary-fixed": "#001a41",
+                        "on-secondary-fixed": "#1a1b1f",
+                        "on-background": "#1a1c1f",
+                        "outline": "#717786",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "tertiary-container": "#c64f00",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#004493",
+                        "tertiary": "#9e3d00",
+                        "surface-container-high": "#e8e8ed",
+                        "surface-bright": "#f9f9fe",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "PingFang SC", "Microsoft YaHei", "sans-serif"],
+                        "body": ["Inter", "PingFang SC", "Microsoft YaHei", "sans-serif"],
+                        "label": ["Inter", "PingFang SC", "Microsoft YaHei", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .glass-panel {
+            background-color: rgba(249, 249, 254, 0.7); /* surface with opacity */
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: 0 20px 40px -10px rgba(26, 28, 31, 0.06); /* Ambient shadow */
+            border: 1px solid rgba(193, 198, 215, 0.15); /* Ghost border using outline-variant */
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #f3f3f8 0%, #d8e2ff 100%);
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #0070eb, #0058bc);
+        }
+        .btn-gradient:hover {
+            box-shadow: 0 8px 24px -8px rgba(0, 88, 188, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex items-center justify-center gradient-bg overflow-hidden relative">
+<!-- Decorative background elements -->
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary-fixed opacity-50 blur-[80px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-tertiary-fixed opacity-40 blur-[100px]"></div>
+<!-- Back Button (Minimal Header for Focused View) -->
+<div class="absolute top-8 left-8">
+<button class="flex items-center justify-center w-12 h-12 rounded-full bg-surface-container-lowest text-on-surface hover:bg-surface-container-low transition-colors duration-300 shadow-[0_4px_12px_rgba(26,28,31,0.05)] border border-outline-variant/10">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+</div>
+<!-- Login Card -->
+<main class="w-full max-w-[480px] p-8 sm:p-12 glass-panel rounded-xl flex flex-col relative z-10 mx-4">
+<!-- Header -->
+<div class="text-center mb-10">
+<h1 class="text-display-md font-headline font-bold text-on-surface tracking-[-0.015em] mb-2">欢迎回来</h1>
+<p class="text-body-lg text-on-surface-variant font-body">请登录以继续访问您的账户</p>
+</div>
+<!-- Tabs -->
+<div class="flex mb-8 relative border-b border-surface-dim">
+<button class="flex-1 pb-4 text-body-lg font-bold text-primary relative">
+                验证码登录
+                <div class="absolute bottom-[-1px] left-0 right-0 h-[3px] bg-primary rounded-t-full"></div>
+</button>
+<button class="flex-1 pb-4 text-body-lg font-medium text-on-surface-variant hover:text-on-surface transition-colors">
+                密码登录
+            </button>
+</div>
+<!-- Form -->
+<form class="flex flex-col gap-5">
+<!-- Phone Input -->
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">phone_iphone</span>
+</div>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container-highest text-on-surface text-body-lg rounded-md border-0 focus:ring-0 focus:bg-surface-container-lowest focus:shadow-[0_0_0_2px_rgba(0,88,188,0.2)] transition-all duration-300 placeholder:text-outline outline-none" placeholder="请输入手机号" type="tel"/>
+</div>
+<!-- Code Input -->
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">password</span>
+</div>
+<input class="w-full h-14 pl-12 pr-[100px] bg-surface-container-highest text-on-surface text-body-lg rounded-md border-0 focus:ring-0 focus:bg-surface-container-lowest focus:shadow-[0_0_0_2px_rgba(0,88,188,0.2)] transition-all duration-300 placeholder:text-outline outline-none" placeholder="请输入验证码" type="text"/>
+<button class="absolute inset-y-0 right-2 px-3 flex items-center text-label-md font-medium text-primary hover:text-primary-container transition-colors" type="button">
+                    获取验证码
+                </button>
+</div>
+<!-- Options -->
+<div class="flex items-center justify-between mt-2 mb-2">
+<label class="flex items-center cursor-pointer group">
+<div class="relative flex items-center justify-center w-5 h-5 rounded border border-outline-variant bg-surface-container-lowest group-hover:border-primary transition-colors">
+<input class="opacity-0 absolute inset-0 cursor-pointer w-full h-full z-10" type="checkbox"/>
+<span class="material-symbols-outlined text-[16px] text-primary opacity-0 scale-50 transition-all duration-200">check</span>
+</div>
+<span class="ml-2 text-label-md text-on-surface-variant group-hover:text-on-surface transition-colors">记住我</span>
+</label>
+<a class="text-label-md text-primary hover:underline underline-offset-4" href="#">遇到问题？</a>
+</div>
+<!-- Submit Button -->
+<button class="w-full h-14 btn-gradient text-on-primary text-body-lg font-bold rounded-full transition-all duration-300 flex items-center justify-center mt-2" type="button">
+                登录
+            </button>
+</form>
+<!-- Other Login Methods -->
+<div class="mt-12">
+<div class="relative flex items-center justify-center mb-6">
+<div class="absolute w-full h-px bg-surface-dim"></div>
+<span class="relative bg-transparent px-4 text-label-sm text-on-surface-variant z-10 glass-panel !bg-surface/80 rounded-full !shadow-none !border-none">其他登录方式</span>
+</div>
+<div class="flex justify-center gap-6">
+<!-- WeChat -->
+<button class="w-12 h-12 rounded-full bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center text-[#07C160] hover:bg-surface-container-low transition-colors shadow-[0_4px_12px_rgba(26,28,31,0.03)] hover:shadow-[0_8px_16px_rgba(26,28,31,0.06)]">
+<span class="material-symbols-outlined text-[24px]">chat</span>
+</button>
+<!-- Apple (Using generic icon for representation as specific brand icons might not be in material symbols) -->
+<button class="w-12 h-12 rounded-full bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-surface-container-low transition-colors shadow-[0_4px_12px_rgba(26,28,31,0.03)] hover:shadow-[0_8px_16px_rgba(26,28,31,0.06)]">
+<span class="material-symbols-outlined text-[24px]">ios</span>
+</button>
+<!-- generic wallet for Alipay -->
+<button class="w-12 h-12 rounded-full bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center text-[#1677FF] hover:bg-surface-container-low transition-colors shadow-[0_4px_12px_rgba(26,28,31,0.03)] hover:shadow-[0_8px_16px_rgba(26,28,31,0.06)]">
+<span class="material-symbols-outlined text-[24px]">account_balance_wallet</span>
+</button>
+</div>
+</div>
+<p class="text-center text-label-sm text-on-surface-variant mt-8">
+            登录即代表同意 <a class="text-primary hover:underline" href="#">用户协议</a> 和 <a class="text-primary hover:underline" href="#">隐私政策</a>
+</p>
+</main>
+<!-- Script to handle custom checkbox UI -->
+<script>
+        // Simple script to toggle visual state of checkbox
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxInputs = document.querySelectorAll('input[type="checkbox"]');
+            checkboxInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    const icon = this.nextElementSibling;
+                    const container = this.parentElement;
+                    if(this.checked) {
+                        icon.classList.remove('opacity-0', 'scale-50');
+                        icon.classList.add('opacity-100', 'scale-100');
+                        container.classList.add('border-primary');
+                    } else {
+                        icon.classList.add('opacity-0', 'scale-50');
+                        icon.classList.remove('opacity-100', 'scale-100');
+                        container.classList.remove('border-primary');
+                    }
+                });
+            });
+        });
+    </script>
+</body></html>

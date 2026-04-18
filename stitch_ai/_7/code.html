@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbcc",
+                    "on-tertiary-fixed": "#351000",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#001a41",
+                    "on-primary-container": "#fefcff",
+                    "surface-container": "#ededf2",
+                    "inverse-on-surface": "#f0f0f5",
+                    "surface-dim": "#d9dade",
+                    "on-surface": "#1a1c1f",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f3f3f8",
+                    "on-tertiary-container": "#fffbff",
+                    "primary-container": "#0070eb",
+                    "on-tertiary-fixed-variant": "#7c2e00",
+                    "outline": "#717786",
+                    "primary": "#0058bc",
+                    "inverse-primary": "#adc6ff",
+                    "secondary-fixed-dim": "#c6c6cb",
+                    "background": "#f9f9fe",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#d8e2ff",
+                    "on-secondary-fixed": "#1a1b1f",
+                    "on-secondary-fixed-variant": "#46464b",
+                    "surface": "#f9f9fe",
+                    "secondary": "#5d5e63",
+                    "surface-variant": "#e2e2e7",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#005bc1",
+                    "on-background": "#1a1c1f",
+                    "on-secondary-container": "#626267",
+                    "secondary-container": "#e0dfe4",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#f9f9fe",
+                    "surface-container-highest": "#e2e2e7",
+                    "inverse-surface": "#2e3034",
+                    "on-surface-variant": "#414755",
+                    "tertiary-container": "#c64f00",
+                    "secondary-fixed": "#e3e2e7",
+                    "outline-variant": "#c1c6d7",
+                    "on-primary-fixed-variant": "#004493",
+                    "tertiary": "#9e3d00",
+                    "tertiary-fixed-dim": "#ffb595",
+                    "primary-fixed-dim": "#adc6ff",
+                    "surface-container-high": "#e8e8ed",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter", "PingFang SC", "Microsoft YaHei", "sans-serif"],
+                    "body": ["Inter", "PingFang SC", "Microsoft YaHei", "sans-serif"],
+                    "label": ["Inter", "PingFang SC", "Microsoft YaHei", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+        }
+        .tonal-shift {
+            background-color: #f3f3f8;
+        }
+        body {
+            background-color: #f9f9fe;
+            color: #1a1c1f;
+        }
+    </style>
+</head>
+<body class="font-body antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex items-center justify-between px-8 h-16 max-w-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] font-['Inter'] antialiased tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold bg-gradient-to-br from-blue-500 to-blue-700 bg-clip-text text-transparent" style="">订单管理</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 hover:backdrop-brightness-110 transition-all duration-300" href="#" style="">首页</a>
+<a class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 hover:backdrop-brightness-110 transition-all duration-300" href="#" style="">需求详情</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 hover:backdrop-brightness-110 transition-all duration-300" href="#" style="">人才广场</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant" style="">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-highest rounded-full text-sm border-none focus:ring-2 focus:ring-primary/20 w-64 transition-all" placeholder="搜索订单..." type="text"/>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer scale-95 active:scale-90 transition-transform" style="">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer scale-95 active:scale-90 transition-transform" style="">account_circle</span>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="flex flex-col fixed left-0 top-0 h-full py-8 px-4 h-screen w-64 border-r border-slate-200/20 bg-slate-50/50 dark:bg-slate-950/50 backdrop-blur-2xl font-['Inter'] leading-relaxed pt-20">
+<div class="mb-8">
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 shadow-sm rounded-xl text-primary font-bold hover:shadow-md transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" style="">arrow_back</span>
+<span class="" style="">返回个人中心</span>
+</a>
+</div>
+<div class="flex items-center gap-3 px-2 mb-10">
+<img class="w-12 h-12 rounded-full object-cover shadow-sm" data-alt="professional male employer portrait in modern clean studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8c1Uyj07fAZVk__d9CGh5N0_QcXNuvNucGHrva9_IzWq8n6RywantgTboDZQC5UJ7O5TIWV_RMl0GQBKLpcHyNzGL-Zmj5iTqTjwo5C3et32Qr45d5Z7rVQDZfDnpYXtFZIdWQFGRpOc4djqD8NJRxkQxVGG7n5VbJSuZ575r0XiNgJjqTMEZXfhO_DATQPQpwgCMoLTiTaRwKlD7i5o8cvWilXiSTDUmRzSpCOJwrxHhOhPNfS0mEsGXUfjd6xjQHMdwH6e4K51A" style=""/>
+<div>
+<h3 class="text-lg font-heavy text-slate-900 dark:text-slate-50" style="">雇主订单中心</h3>
+<p class="text-xs text-on-secondary-container" style="">智选创作人 · 认证雇主</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<div class="px-4 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">当前需求管理</div>
+<a class="flex items-center gap-3 px-4 py-3 bg-blue-50/50 dark:bg-blue-900/20 rounded-xl text-blue-600 font-bold" href="#" style="">
+<span class="material-symbols-outlined" style="">description</span>
+<span class="" style="">需求详情</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/30 rounded-xl hover:translate-x-1 transition-transform duration-200" href="#" style="">
+<span class="material-symbols-outlined" style="">group</span>
+<span class="" style="">报名人员 (12)</span>
+</a>
+</nav>
+<button class="mt-auto w-full py-4 bg-gradient-to-br from-primary-container to-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-transform" style="">
+<span class="material-symbols-outlined" style="">add</span>
+<span class="" style="">发布新订单</span>
+</button>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-8 pb-12 min-h-screen">
+<!-- Header Section: Bento Style -->
+<div class="grid grid-cols-12 gap-6 mb-12">
+<div class="col-span-12 lg:col-span-8 glass-panel p-10 rounded-xl border-outline-variant/15 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-20 -mt-20"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-4">
+<span class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full tracking-wider" style="">招募中</span>
+<span class="text-on-surface-variant text-sm" style="">发布于：2023年10月24日</span>
+</div>
+<h1 class="text-4xl font-bold tracking-tight text-on-surface mb-6 leading-tight" style="">AI短片角色动画师需求</h1>
+<div class="flex flex-wrap gap-8 items-center text-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="">payments</span>
+<span class="font-semibold text-on-surface text-lg" style="">¥15,000 - ¥25,000</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="">schedule</span>
+<span class="" style="">周期：21天</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="">location_on</span>
+<span class="" style="">远程办公</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 glass-panel p-8 rounded-xl flex flex-col justify-between border-outline-variant/15">
+<div>
+<p class="text-on-surface-variant text-sm mb-2" style="">已收到投递</p>
+<p class="text-5xl font-extrabold text-on-surface" style="">12 <span class="text-lg font-normal text-on-surface-variant" style="">位创作者</span></p>
+</div>
+<div class="mt-4 flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-white object-cover" data-alt="portrait of a young female digital artist with colorful studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAgsyaMOAe_6VPF5LcidWmcn0CZyYEC2aaW-kBgvumfQJD3mBtujizQRX4CpkW0Qn8fIa3CtxnlXdPEKYYG61joyfyknC_s1vcrBSP_LSA_BdYiLqPe3FnXl6M2UWKWG5HCBa6hbbQUM5xFN5n1m8Q_IIqC5JMCvtDDOd5KRCF4PbKcr0jNqHbRdeHnPIFqAvMDN_xHmmmnJnQMJERAIHFooNQb6KpcVOOIGUquJoRHvb8O00GOKYP4mCClM9pQZTYwgaKDli5t_6V" style=""/>
+<img class="w-10 h-10 rounded-full border-2 border-white object-cover" data-alt="portrait of a male video editor in a sleek professional studio setup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOp1w5NLJgw2jzn90RblRq9Me5Piq0fWOJiN8QmcSI3IMaw3UwKdynqU8j3dcKB4do9pJJ1_0xXpN6LVCZj2iB19zgoNYObRlJzFwB1IgiXkQuAmAtzh3_zWz1-D6VguECvNQaWLS-cC0X9erFIsbKEoxsr_xX9mU8iXUPfx0k2Gyq0wU-s48Rwra6n3RSFSn32M52mGdIPMVIy5M2gvg2yjRQztm8d4UY4SFrKHpTvU8zERMcL1q8MysKrxh1IWGfuqyr3xuw4POQ" style=""/>
+<img class="w-10 h-10 rounded-full border-2 border-white object-cover" data-alt="portrait of a young creative professional looking into the camera with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk3rtkSkCFWBFITPAi5toEURLEATZ3a435jP2kGnuWwdMWlsyQFy9KEj0nhXdRl1eZwi95-_F0uKx4L0oHOoyQujlOwUUCAmwA5sSvD9gucQHW4bYex2uIouz4JqRYkMitN-fZq3onLPv7hH4vJ8Ngh_CJ-wVxlnYEQUW1k5qzpe_i-lJC5m83YumrLRZkO8z7sSEerQ-uIbDXeTf-vBGKuOg8VCE2CMDyRqnjnvh_mlc-M6FfJ8woQcCSmJAKKmfIvpEv5gafV0O4" style=""/>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-surface-container-highest flex items-center justify-center text-[10px] font-bold" style="">+9</div>
+</div>
+<button class="mt-6 w-full py-3 bg-surface-container-high text-primary rounded-full font-semibold hover:bg-surface-container-highest transition-colors" style="">
+                    管理需求帖 </button>
+</div>
+</div>
+<!-- Section Title -->
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-bold text-on-surface" style="">待审核接单列表</h2>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-4 py-2 bg-white rounded-full text-sm font-medium border border-outline-variant/20 hover:shadow-sm transition-all" style="">
+<span class="material-symbols-outlined text-sm" style="">filter_list</span>
+                    筛选排序
+                </button>
+</div>
+</div><div class="flex flex-wrap items-center gap-3 mb-8">
+<button class="px-5 py-2 bg-primary text-white rounded-full text-sm font-semibold shadow-sm transition-all">
+    全部
+  </button>
+<button class="px-5 py-2 glass-panel border border-outline-variant/10 text-on-surface-variant hover:bg-surface-container-low rounded-full text-sm font-medium transition-all">
+    UI设计
+  </button>
+<button class="px-5 py-2 glass-panel border border-outline-variant/10 text-on-surface-variant hover:bg-surface-container-low rounded-full text-sm font-medium transition-all">
+    AI插画
+  </button>
+<button class="px-5 py-2 glass-panel border border-outline-variant/10 text-on-surface-variant hover:bg-surface-container-low rounded-full text-sm font-medium transition-all">
+    3D建模
+  </button>
+<button class="px-5 py-2 glass-panel border border-outline-variant/10 text-on-surface-variant hover:bg-surface-container-low rounded-full text-sm font-medium transition-all">
+    视频后期
+  </button>
+</div>
+<!-- Creator List: Asymmetric Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Card 1 -->
+<div class="group surface-container-lowest p-8 rounded-lg shadow-[0_40px_80px_-10px_rgba(26,28,31,0.04)] border border-transparent hover:border-primary/10 transition-all duration-500">
+<div class="flex items-start justify-between mb-8">
+<div class="flex gap-4">
+<img class="w-16 h-16 rounded-md object-cover shadow-sm" data-alt="professional high-end avatar of a digital artist with minimalist clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDRSWpHdTLFGzxp9ta184-FMGPO7AG0Hqjycvxd2OtH6cbv1laMylY9sOQ5xCJZqCU7V9G4h0P3ad2BflAsFkr0RiswhdFY1gcV8Tyru8z5mkuqkpu9HuR5Hse-jgAW94zoQomZVGHSCsxPyHDmYyikmhZez_WsJG_wLrcTxMPM8s5cFN6QeqKwNbgmBYE-t7cejkdWEAlWEgf0LxecLHqgCRPl9UYP1FeODplVmir5noW7AXTlttR-s9erkLSYYhW4Dqw3V0nDUBl" style=""/>
+<div>
+<h4 class="text-xl font-bold text-on-surface mb-1" style="">林深见鹿</h4>
+<div class="flex items-center gap-1.5 text-tertiary font-bold text-sm">
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="" style="">4.9</span>
+<span class="text-on-surface-variant font-normal" style="">/ 5.0</span>
+</div>
+</div>
+</div>
+<div class="px-3 py-1 bg-secondary-container/50 text-on-secondary-container text-[10px] font-bold rounded uppercase tracking-widest" style="">
+                        TOP CREATOR
+                    </div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-md mb-8 italic text-on-surface-variant text-sm leading-relaxed" style="">
+                    “参与过3部AI生成短片的角色绑定与动画制作，精通 Stable Diffusion 与 Unreal Engine 5 的协同工作流。希望能为您的项目带来更具张力的表现。”
+                </div>
+<!-- Works Gallery -->
+<div class="grid grid-cols-3 gap-3 mb-8">
+<div class="aspect-video rounded-sm overflow-hidden relative group/work">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover/work:scale-110" data-alt="cinematic shot of a sci-fi character in a misty forest with glowing blue accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVRRZaJDJ11GioGXdCfV3exhDYVKmA-7dwJNXop9C8kYslYR7mPn4_gMDC3siE0OfR_imK23hgPLVanwoA9keHrZABCoWi_aCvcBG8Uz2v0dZDmPYgZgFoGddxAeW7xHrhcmjgaCODuIo9N9XSmPT26eHQMHImZy3D6t5HlzAyb1MqSvE_bw5cORIoPMtoGdqJ_hkmb98UyKZbNHEr_sxmInbqBN0QX8oZyCkjoRkLGWgwKbL4y5-Hq4K3sfKcWfT9i1TUvhDetm3V" style=""/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover/work:opacity-100 transition-opacity"></div>
+</div>
+<div class="aspect-video rounded-sm overflow-hidden relative group/work">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover/work:scale-110" data-alt="hyper-realistic cyberpunk street scene with character in motion at night with neon lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQChRCoX0ogfbRCad2Oh0lIYF0gkSdByT1uZLIQ9A4t2s49leR5Urd1459qPfZM5dyN8R4A4_4iIMm_5YE-qqGzAM9tdPUcx9p_2UbQQiIrUdM-gNSKzExttMVSsCgemjpftH7wjgjPuHyLkRZxhhWh-jMFHGQThVTOmTmEClI2gT8x9kSQwODSvfnomdnHV8ur4q55HEpp6r3vIUy1TW6mvLvrnuVRsZjyETeVM05gMH1pBkmEOLJuk1ueEXnkpf1ZRU2NuHlMZjN" style=""/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover/work:opacity-100 transition-opacity"></div>
+</div>
+<div class="aspect-video rounded-sm overflow-hidden relative group/work bg-surface-container-highest flex items-center justify-center">
+<span class="text-xs font-bold text-on-surface-variant" style="">+4 更多</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-3 bg-primary-container text-white rounded-full font-bold shadow-md hover:shadow-primary/20 transition-all active:scale-[0.98]" style="">
+                        同意接单
+                    </button>
+<button class="px-6 py-3 bg-surface-container-high text-on-surface-variant rounded-full font-semibold hover:bg-error/10 hover:text-error transition-all" style="">
+                        拒绝
+                    </button>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant/30 rounded-full text-on-surface-variant hover:border-primary transition-colors" style="">
+<span class="material-symbols-outlined" style="">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group surface-container-lowest p-8 rounded-lg shadow-[0_40px_80px_-10px_rgba(26,28,31,0.04)] border border-transparent hover:border-primary/10 transition-all duration-500">
+<div class="flex items-start justify-between mb-8">
+<div class="flex gap-4">
+<img class="w-16 h-16 rounded-md object-cover shadow-sm" data-alt="portrait of a middle-aged creative director with glasses in a professional white studio environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG_uKhmXhwlQA6H3Mib8CT1OHsQDZ5zQD1UEiR7cqlgBZvUheyHpZ96O7hYtxaxz5RKDSzukoamkng_YP_-AhoEsnHoPv5d14DMZ-9vv3rp-DUBe-otWMTcqGIdY2tWany-z59M2aBZT1cWboGyqhM8r2BX6K9tTtB-IyLEXrBweOArVfCbjsNzODz2itly5UY5KrAoNj-RgFw-W8IHVxgIRHlXcREEmBul9gTgZz5QwjNtViYc3MdTVPXtYHujB3f9WjYveYakuy8" style=""/>
+<div>
+<h4 class="text-xl font-bold text-on-surface mb-1" style="">张牧之</h4>
+<div class="flex items-center gap-1.5 text-tertiary font-bold text-sm">
+<span class="material-symbols-outlined text-sm" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="" style="">4.8</span>
+<span class="text-on-surface-variant font-normal" style="">/ 5.0</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-md mb-8 italic text-on-surface-variant text-sm leading-relaxed" style="">
+                    “8年商业动画经验，近期转型AI工作流。擅长处理复杂的角色面部捕捉与动作平滑化。可以提供极高完成度的分镜DEMO。”
+                </div>
+<!-- Works Gallery -->
+<div class="grid grid-cols-3 gap-3 mb-8">
+<div class="aspect-video rounded-sm overflow-hidden relative group/work">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover/work:scale-110" data-alt="dynamic martial arts animation keyframe with stylized visual effects and dramatic shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUqGX8I_-i9iie0mihuNq2PD3kNEHtn_9QG3bNzs9ArgemKI11KmplB19QSzwOTGJuPLL-DM1tY6j6yP5B_z1RC4xC6aj2Dquf3MLbhkMjRHP_ax4pL2owrS0KsI-k3kSuea3cfyR4tGTtH3i19rOAn_wPDXt21HiMcbSy-BfR38-seqHyuwV93J29w57edDSMbcfNl9T47ZiGcEw0TMN1bEisUeZEA6hG9b6ZgYb8sBhFbcrmr7wc5fIa6tsHvl_sIArHpg4U4vgz" style=""/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover/work:opacity-100 transition-opacity"></div>
+</div>
+<div class="aspect-video rounded-sm overflow-hidden relative group/work">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover/work:scale-110" data-alt="close up of a digital human with intricate facial details showing motion capture quality" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_pL2nB8tHtaivubLR1ish9EkD5sVhaiRoSUsjh34t0ZmQ2r5alZX56Qglyp3EqJv4d-4NeXXWd2oApkaTAovtDlnEJ_sdw63qNYh8ZBiizlsLszFCc-_z0oSJNDME2rFeGfJEpXT12cKUP_1vBEqLYyXdcPjHzeSlTbnONgwIGt2YmKojy9nok3LK4bmr53-qdNtcjX9RHwUavVYq_4LG7q9RCTEqJi9Tf1_ksxg0WnIhFUBQwxjE6vOm2UjynsPnj8sgIeCOIAbw" style=""/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover/work:opacity-100 transition-opacity"></div>
+</div>
+<div class="aspect-video rounded-sm overflow-hidden relative group/work">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover/work:scale-110" data-alt="breathtaking cinematic landscape for an animated short film with golden hour lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoigZQR2yJzLeEjijmo97HeGGs5eybYepVAXoiImgvSk8APzGG2KsKNpvQkj-a1W4TMr-xml-N9m3Oh4TpCXcvIYykNsAStoCdszlwt9oHYC7JiHTNpO3IYxNUgA5m7chORFKT_Hpr5kdPDox-qAmdm_e6sNWGphOjnHXMcSyzzSAVuDWfeRn4EgyAT58fbHHZUe2-M6Eeybz20cabY8YsH2PVcc3ABoBliJmoZxihojgZ8Q1FX6l2MEIvPeclWpkF_-ail1Gr7VpK" style=""/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover/work:opacity-100 transition-opacity"></div>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-3 bg-primary-container text-white rounded-full font-bold shadow-md hover:shadow-primary/20 transition-all active:scale-[0.98]" style="">
+                        同意接单
+                    </button>
+<button class="px-6 py-3 bg-surface-container-high text-on-surface-variant rounded-full font-semibold hover:bg-error/10 hover:text-error transition-all" style="">
+                        拒绝
+                    </button>
+<button class="w-12 h-12 flex items-center justify-center border border-outline-variant/30 rounded-full text-on-surface-variant hover:border-primary transition-colors" style="">
+<span class="material-symbols-outlined" style="">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer / Load More -->
+<div class="mt-16 flex flex-col items-center gap-4">
+<p class="text-on-surface-variant text-sm" style="">正在查看 2 / 12 位申请者</p>
+<button class="px-8 py-3 bg-white border border-outline-variant/20 rounded-full font-semibold text-on-surface hover:bg-surface-container-low transition-all" style="">
+                加载更多申请者
+            </button>
+</div>
+</main>
+<!-- FAB Suppression: This is a details page, FAB is suppressed per rules. -->
+</body></html>

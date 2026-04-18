@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbcc",
+                    "on-tertiary-fixed": "#351000",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#001a41",
+                    "on-primary-container": "#fefcff",
+                    "surface-container": "#f2f2f7",
+                    "inverse-on-surface": "#f0f0f5",
+                    "surface-dim": "#d9dade",
+                    "on-surface": "#1c1c1e",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f9f9f9",
+                    "on-tertiary-container": "#fffbff",
+                    "primary-container": "#007AFF",
+                    "on-tertiary-fixed-variant": "#7c2e00",
+                    "outline": "#8e8e93",
+                    "primary": "#007AFF",
+                    "inverse-primary": "#adc6ff",
+                    "secondary-fixed-dim": "#c6c6cb",
+                    "background": "#f5f5f7",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#d8e2ff",
+                    "on-secondary-fixed": "#1a1b1f",
+                    "on-secondary-fixed-variant": "#46464b",
+                    "surface": "#f5f5f7",
+                    "secondary": "#8e8e93",
+                    "surface-variant": "#e5e5ea",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#007AFF",
+                    "on-background": "#1c1c1e",
+                    "on-secondary-container": "#3a3a3c",
+                    "secondary-container": "#e5e5ea",
+                    "on-primary": "#ffffff",
+                    "error": "#ff3b30",
+                    "surface-bright": "#ffffff",
+                    "surface-container-highest": "#e5e5ea",
+                    "inverse-surface": "#2c2c2e",
+                    "on-surface-variant": "#3a3a3c",
+                    "tertiary-container": "#c64f00",
+                    "secondary-fixed": "#e3e2e7",
+                    "outline-variant": "#d1d1d6",
+                    "on-primary-fixed-variant": "#004493",
+                    "tertiary": "#9e3d00",
+                    "tertiary-fixed-dim": "#ffb595",
+                    "primary-fixed-dim": "#adc6ff",
+                    "surface-container-high": "#ebebeb",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.75rem",
+                    "lg": "1.25rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter", "SF Pro Display", "PingFang SC", "sans-serif"],
+                    "body": ["Inter", "SF Pro Text", "PingFang SC", "sans-serif"],
+                    "label": ["Inter", "SF Pro Text", "PingFang SC", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .apple-glass {
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .apple-card-shadow {
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        }
+        body {
+            background-color: #f5f5f7;
+            color: #1c1c1e;
+        }
+    </style>
+</head>
+<body class="font-body antialiased">
+<!-- Header with Top Nav and Breadcrumbs -->
+<header class="fixed top-0 w-full z-50 apple-glass">
+<!-- Top Main Nav -->
+<nav class="h-14 flex items-center justify-between px-6 md:px-12 border-b border-black/[0.03]">
+<div class="flex items-center gap-10">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-xl">blur_on</span>
+</div>
+<span class="font-bold text-lg tracking-tight">AI Studio</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[13px] font-medium text-secondary hover:text-on-surface transition-colors" href="#">首页</a>
+<a class="text-[13px] font-medium text-secondary hover:text-on-surface transition-colors" href="#">广场</a>
+<a class="text-[13px] font-medium text-on-surface" href="#">需求大厅</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex relative items-center">
+<span class="material-symbols-outlined absolute left-3 text-secondary scale-75">search</span>
+<input class="pl-9 pr-4 py-1.5 bg-black/5 rounded-full text-xs border-none focus:ring-1 focus:ring-primary/20 w-48 transition-all" placeholder="快速搜索..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:text-on-surface transition-colors">notifications</span>
+<img alt="Avatar" class="w-8 h-8 rounded-full object-cover ring-1 ring-black/5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8c1Uyj07fAZVk__d9CGh5N0_QcXNuvNucGHrva9_IzWq8n6RywantgTboDZQC5UJ7O5TIWV_RMl0GQBKLpcHyNzGL-Zmj5iTqTjwo5C3et32Qr45d5Z7rVQDZfDnpYXtFZIdWQFGRpOc4djqD8NJRxkQxVGG7n5VbJSuZ575r0XiNgJjqTMEZXfhO_DATQPQpwgCMoLTiTaRwKlD7i5o8cvWilXiSTDUmRzSpCOJwrxHhOhPNfS0mEsGXUfjd6xjQHMdwH6e4K51A"/>
+</div>
+</div>
+</nav>
+<!-- Breadcrumb Nav -->
+<nav class="h-10 flex items-center px-6 md:px-12 bg-white/30">
+<div class="flex items-center gap-3">
+<a class="flex items-center justify-center w-6 h-6 rounded-full hover:bg-black/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-on-surface text-base">arrow_back</span>
+</a>
+<div class="flex items-center text-[12px] font-medium">
+<a class="text-secondary hover:text-primary transition-colors" href="#">个人主页</a>
+<span class="mx-2 text-outline-variant">/</span>
+<a class="text-secondary hover:text-primary transition-colors" href="#">订单管理</a>
+<span class="mx-2 text-outline-variant">/</span>
+<span class="text-on-surface">需求详情</span>
+</div>
+</div>
+</nav>
+</header>
+<!-- Main Content -->
+<main class="max-w-[1440px] mx-auto pt-32 pb-12 px-6 md:px-12 flex flex-col lg:flex-row gap-8">
+<!-- Left: Static Requirement Card (Master) -->
+<aside class="w-full lg:w-80 flex-shrink-0">
+<div class="sticky top-32 space-y-4">
+<div class="bg-white rounded-xl p-6 apple-card-shadow border border-black/5">
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2.5 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded-full uppercase tracking-tight">招募中</span>
+</div>
+<h1 class="text-xl font-bold text-on-surface mb-6 leading-snug">AI短片角色动画师需求</h1>
+<div class="space-y-4 text-sm">
+<div class="flex items-center justify-between">
+<span class="text-secondary">项目预算</span>
+<span class="font-semibold text-primary">¥15k - 25k</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-secondary">预计周期</span>
+<span class="text-on-surface">21天</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-secondary">工作方式</span>
+<span class="text-on-surface">远程办公</span>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-black/5">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs text-secondary">已投递</span>
+<span class="text-sm font-bold">12 位创作者</span>
+</div>
+<div class="flex -space-x-2 overflow-hidden">
+<img alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAgsyaMOAe_6VPF5LcidWmcn0CZyYEC2aaW-kBgvumfQJD3mBtujizQRX4CpkW0Qn8fIa3CtxnlXdPEKYYG61joyfyknC_s1vcrBSP_LSA_BdYiLqPe3FnXl6M2UWKWG5HCBa6hbbQUM5xFN5n1m8Q_IIqC5JMCvtDDOd5KRCF4PbKcr0jNqHbRdeHnPIFqAvMDN_xHmmmnJnQMJERAIHFooNQb6KpcVOOIGUquJoRHvb8O00GOKYP4mCClM9pQZTYwgaKDli5t_6V"/>
+<img alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOp1w5NLJgw2jzn90RblRq9Me5Piq0fWOJiN8QmcSI3IMaw3UwKdynqU8j3dcKB4do9pJJ1_0xXpN6LVCZj2iB19zgoNYObRlJzFwB1IgiXkQuAmAtzh3_zWz1-D6VguECvNQaWLS-cC0X9erFIsbKEoxsr_xX9mU8iXUPfx0k2Gyq0wU-s48Rwra6n3RSFSn32M52mGdIPMVIy5M2gvg2yjRQztm8d4UY4SFrKHpTvU8zERMcL1q8MysKrxh1IWGfuqyr3xuw4POQ"/>
+<div class="flex items-center justify-center h-8 w-8 rounded-full ring-2 ring-white bg-surface-container-highest text-[10px] font-bold">+10</div>
+</div>
+</div>
+</div>
+<button class="w-full py-3 bg-on-surface text-white rounded-xl font-semibold text-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2 apple-card-shadow">
+<span class="material-symbols-outlined text-lg">edit</span>
+                    编辑需求
+                </button>
+</div>
+</aside>
+<!-- Right: Creators List (Detail) -->
+<section class="flex-1 space-y-6">
+<div class="flex items-center justify-between mb-2 px-2">
+<h2 class="text-xl font-bold text-on-surface">待审核接单人员</h2>
+<div class="flex items-center gap-2">
+<span class="text-xs text-secondary">排序方式:</span>
+<button class="flex items-center gap-1 px-3 py-1 bg-white rounded-full text-xs font-medium border border-black/5 hover:bg-black/5 transition-all">
+                        推荐分
+                        <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Creator Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Card 1 -->
+<div class="bg-white rounded-xl p-6 apple-card-shadow border border-black/5 flex flex-col justify-between group transition-all hover:translate-y-[-2px]">
+<div>
+<div class="flex items-start justify-between mb-4">
+<div class="flex gap-4">
+<img alt="" class="w-14 h-14 rounded-lg object-cover ring-1 ring-black/5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDRSWpHdTLFGzxp9ta184-FMGPO7AG0Hqjycvxd2OtH6cbv1laMylY9sOQ5xCJZqCU7V9G4h0P3ad2BflAsFkr0RiswhdFY1gcV8Tyru8z5mkuqkpu9HuR5Hse-jgAW94zoQomZVGHSCsxPyHDmYyikmhZez_WsJG_wLrcTxMPM8s5cFN6QeqKwNbgmBYE-t7cejkdWEAlWEgf0LxecLHqgCRPl9UYP1FeODplVmir5noW7AXTlttR-s9erkLSYYhW4Dqw3V0nDUBl"/>
+<div>
+<h4 class="text-lg font-bold text-on-surface">林深见鹿</h4>
+<div class="flex items-center gap-1 text-[13px] font-semibold text-[#FF9500]">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1">star</span>
+<span>4.9</span>
+<span class="text-secondary font-normal ml-0.5">/ 5.0</span>
+</div>
+</div>
+</div>
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest px-2 py-0.5 bg-black/5 rounded">TOP</span>
+</div>
+<p class="text-[13px] text-on-surface-variant leading-relaxed line-clamp-3 mb-6">
+                            “参与过3部AI生成短片的角色绑定与动画制作，精通 Stable Diffusion 与 Unreal Engine 5 的协同工作流。”
+                        </p>
+<div class="grid grid-cols-3 gap-2 mb-8">
+<div class="aspect-[4/3] rounded-md overflow-hidden bg-surface-container">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVRRZaJDJ11GioGXdCfV3exhDYVKmA-7dwJNXop9C8kYslYR7mPn4_gMDC3siE0OfR_imK23hgPLVanwoA9keHrZABCoWi_aCvcBG8Uz2v0dZDmPYgZgFoGddxAeW7xHrhcmjgaCODuIo9N9XSmPT26eHQMHImZy3D6t5HlzAyb1MqSvE_bw5cORIoPMtoGdqJ_hkmb98UyKZbNHEr_sxmInbqBN0QX8oZyCkjoRkLGWgwKbL4y5-Hq4K3sfKcWfT9i1TUvhDetm3V"/>
+</div>
+<div class="aspect-[4/3] rounded-md overflow-hidden bg-surface-container">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQChRCoX0ogfbRCad2Oh0lIYF0gkSdByT1uZLIQ9A4t2s49leR5Urd1459qPfZM5dyN8R4A4_4iIMm_5YE-qqGzAM9tdPUcx9p_2UbQQiIrUdM-gNSKzExttMVSsCgemjpftH7wjgjPuHyLkRZxhhWh-jMFHGQThVTOmTmEClI2gT8x9kSQwODSvfnomdnHV8ur4q55HEpp6r3vIUy1TW6mvLvrnuVRsZjyETeVM05gMH1pBkmEOLJuk1ueEXnkpf1ZRU2NuHlMZjN"/>
+</div>
+<div class="aspect-[4/3] rounded-md overflow-hidden bg-surface-container flex items-center justify-center">
+<span class="text-[11px] font-bold text-secondary">+4</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2.5 bg-primary text-white rounded-full text-[13px] font-bold hover:bg-primary/90 transition-colors">同意接单</button>
+<button class="px-5 py-2.5 bg-black/5 text-on-surface-variant rounded-full text-[13px] font-semibold hover:bg-error/10 hover:text-error transition-colors">拒绝</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white rounded-xl p-6 apple-card-shadow border border-black/5 flex flex-col justify-between group transition-all hover:translate-y-[-2px]">
+<div>
+<div class="flex items-start justify-between mb-4">
+<div class="flex gap-4">
+<img alt="" class="w-14 h-14 rounded-lg object-cover ring-1 ring-black/5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG_uKhmXhwlQA6H3Mib8CT1OHsQDZ5zQD1UEiR7cqlgBZvUheyHpZ96O7hYtxaxz5RKDSzukoamkng_YP_-AhoEsnHoPv5d14DMZ-9vv3rp-DUBe-otWMTcqGIdY2tWany-z59M2aBZT1cWboGyqhM8r2BX6K9tTtB-IyLEXrBweOArVfCbjsNzODz2itly5UY5KrAoNj-RgFw-W8IHVxgIRHlXcREEmBul9gTgZz5QwjNtViYc3MdTVPXtYHujB3f9WjYveYakuy8"/>
+<div>
+<h4 class="text-lg font-bold text-on-surface">张牧之</h4>
+<div class="flex items-center gap-1 text-[13px] font-semibold text-[#FF9500]">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1">star</span>
+<span>4.8</span>
+<span class="text-secondary font-normal ml-0.5">/ 5.0</span>
+</div>
+</div>
+</div>
+</div>
+<p class="text-[13px] text-on-surface-variant leading-relaxed line-clamp-3 mb-6">
+                            “8年商业动画经验，近期转型AI工作流。擅长处理复杂的角色面部捕捉与动作平滑化。”
+                        </p>
+<div class="grid grid-cols-3 gap-2 mb-8">
+<div class="aspect-[4/3] rounded-md overflow-hidden bg-surface-container">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUqGX8I_-i9iie0mihuNq2PD3kNEHtn_9QG3bNzs9ArgemKI11KmplB19QSzwOTGJuPLL-DM1tY6j6yP5B_z1RC4xC6aj2Dquf3MLbhkMjRHP_ax4pL2owrS0KsI-k3kSuea3cfyR4tGTtH3i19rOAn_wPDXt21HiMcbSy-BfR38-seqHyuwV93J29w57edDSMbcfNl9T47ZiGcEw0TMN1bEisUeZEA6hG9b6ZgYb8sBhFbcrmr7wc5fIa6tsHvl_sIArHpg4U4vgz"/>
+</div>
+<div class="aspect-[4/3] rounded-md overflow-hidden bg-surface-container">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_pL2nB8tHtaivubLR1ish9EkD5sVhaiRoSUsjh34t0ZmQ2r5alZX56Qglyp3EqJv4d-4NeXXWd2oApkaTAovtDlnEJ_sdw63qNYh8ZBiizlsLszFCc-_z0oSJNDME2rFeGfJEpXT12cKUP_1vBEqLYyXdcPjHzeSlTbnONgwIGt2YmKojy9nok3LK4bmr53-qdNtcjX9RHwUavVYq_4LG7q9RCTEqJi9Tf1_ksxg0WnIhFUBQwxjE6vOm2UjynsPnj8sgIeCOIAbw"/>
+</div>
+<div class="aspect-[4/3] rounded-md overflow-hidden bg-surface-container">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoigZQR2yJzLeEjijmo97HeGGs5eybYepVAXoiImgvSk8APzGG2KsKNpvQkj-a1W4TMr-xml-N9m3Oh4TpCXcvIYykNsAStoCdszlwt9oHYC7JiHTNpO3IYxNUgA5m7chORFKT_Hpr5kdPDox-qAmdm_e6sNWGphOjnHXMcSyzzSAVuDWfeRn4EgyAT58fbHHZUe2-M6Eeybz20cabY8YsH2PVcc3ABoBliJmoZxihojgZ8Q1FX6l2MEIvPeclWpkF_-ail1Gr7VpK"/>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2.5 bg-primary text-white rounded-full text-[13px] font-bold hover:bg-primary/90 transition-colors">同意接单</button>
+<button class="px-5 py-2.5 bg-black/5 text-on-surface-variant rounded-full text-[13px] font-semibold hover:bg-error/10 hover:text-error transition-colors">拒绝</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white rounded-xl p-6 apple-card-shadow border border-black/5 flex flex-col justify-between group transition-all hover:translate-y-[-2px]">
+<div>
+<div class="flex items-start justify-between mb-4">
+<div class="flex gap-4">
+<img alt="" class="w-14 h-14 rounded-lg object-cover ring-1 ring-black/5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcR6_P9zDq564DByO-XwMvKshXoY4Lq0FhFwKzS3r0V362qVbH1YwR4Iu0m2R3wD-fW0V3"/>
+<div>
+<h4 class="text-lg font-bold text-on-surface">陈思源</h4>
+<div class="flex items-center gap-1 text-[13px] font-semibold text-[#FF9500]">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1">star</span>
+<span>5.0</span>
+<span class="text-secondary font-normal ml-0.5">/ 5.0</span>
+</div>
+</div>
+</div>
+</div>
+<p class="text-[13px] text-on-surface-variant leading-relaxed line-clamp-3 mb-6">
+                            “专注于AI叙事短片的视效合成，擅长使用 Midjourney 结合 Runway Gen-2 进行动态氛围营造，效率极高。”
+                        </p>
+<div class="grid grid-cols-3 gap-2 mb-8">
+<div class="aspect-[4/3] rounded-md overflow-hidden bg-surface-container">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9yV1P3X7Y6Z5R4M3Q2W1L0K9J8H7G6F5E4D3C2B1A"/>
+</div>
+<div class="aspect-[4/3] rounded-md overflow-hidden bg-surface-container">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuE8v2W1Q0Z9Y8X7H6G5F4D3C2B1A0M9L8K7J6H5"/>
+</div>
+<div class="aspect-[4/3] rounded-md overflow-hidden bg-surface-container">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuF7u3W2Q1Z0Y9X8H7G6F5D4C3B2A1M0L9K8J7H"/>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2.5 bg-primary text-white rounded-full text-[13px] font-bold hover:bg-primary/90 transition-colors">同意接单</button>
+<button class="px-5 py-2.5 bg-black/5 text-on-surface-variant rounded-full text-[13px] font-semibold hover:bg-error/10 hover:text-error transition-colors">拒绝</button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-white rounded-xl p-6 apple-card-shadow border border-black/5 flex flex-col justify-between group transition-all hover:translate-y-[-2px]">
+<div>
+<div class="flex items-start justify-between mb-4">
+<div class="flex gap-4">
+<img alt="" class="w-14 h-14 rounded-lg object-cover ring-1 ring-black/5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuG6v4W3Q2Z1Y0X9H8G7F6D5C4B3A2M1L0K9J8H7"/>
+<div>
+<h4 class="text-lg font-bold text-on-surface">Liya_Design</h4>
+<div class="flex items-center gap-1 text-[13px] font-semibold text-[#FF9500]">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1">star</span>
+<span>4.7</span>
+<span class="text-secondary font-normal ml-0.5">/ 5.0</span>
+</div>
+</div>
+</div>
+</div>
+<p class="text-[13px] text-on-surface-variant leading-relaxed line-clamp-3 mb-6">
+                            “新锐AI数字艺术家，精通 ComfyUI 工作流，能为角色提供高度一致的服装与配饰细节生成。”
+                        </p>
+<div class="grid grid-cols-3 gap-2 mb-8">
+<div class="aspect-[4/3] rounded-md overflow-hidden bg-surface-container">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuH5u5W4Q3Z2Y1X0H9G8F7D6C5B4A3M2L1K0J9H"/>
+</div>
+<div class="aspect-[4/3] rounded-md overflow-hidden bg-surface-container">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuI4v6W5Q4Z3Y2X1H0G9F8D7C6B5A4M3L2K1J0"/>
+</div>
+<div class="aspect-[4/3] rounded-md overflow-hidden bg-surface-container flex items-center justify-center">
+<span class="text-[11px] font-bold text-secondary">+2</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2.5 bg-primary text-white rounded-full text-[13px] font-bold hover:bg-primary/90 transition-colors">同意接单</button>
+<button class="px-5 py-2.5 bg-black/5 text-on-surface-variant rounded-full text-[13px] font-semibold hover:bg-error/10 hover:text-error transition-colors">拒绝</button>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-white rounded-xl p-6 apple-card-shadow border border-black/5 flex flex-col justify-between group transition-all hover:translate-y-[-2px]">
+<div>
+<div class="flex items-start justify-between mb-4">
+<div class="flex gap-4">
+<img alt="" class="w-14 h-14 rounded-lg object-cover ring-1 ring-black/5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuJ3u7W6Q5Z4Y3X2H1G0F9D8C7B6A5M4L3K2J1"/>
+<div>
+<h4 class="text-lg font-bold text-on-surface">王小宇 AI-Lab</h4>
+<div class="flex items-center gap-1 text-[13px] font-semibold text-[#FF9500]">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1">star</span>
+<span>4.9</span>
+<span class="text-secondary font-normal ml-0.5">/ 5.0</span>
+</div>
+</div>
+</div>
+</div>
+<p class="text-[13px] text-on-surface-variant leading-relaxed line-clamp-3 mb-6">
+                            “资深原画师转型AI动画，对镜头语言有深刻理解。擅长处理角色与背景的景深适配与光影平衡。”
+                        </p>
+<div class="grid grid-cols-3 gap-2 mb-8">
+<div class="aspect-[4/3] rounded-md overflow-hidden bg-surface-container">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuK2v8W7Q6Z5Y4X3H2G1F0D9C8B7A6M5L4K3J2"/>
+</div>
+<div class="aspect-[4/3] rounded-md overflow-hidden bg-surface-container">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuL1u9W8Q7Z6Y5X4H3G2F1D0C9B8A7M6L5K4J3"/>
+</div>
+<div class="aspect-[4/3] rounded-md overflow-hidden bg-surface-container">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuM0v0W9Q8Z7Y6X5H4G3F2D1C0B9A8M7L6K5J4"/>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2.5 bg-primary text-white rounded-full text-[13px] font-bold hover:bg-primary/90 transition-colors">同意接单</button>
+<button class="px-5 py-2.5 bg-black/5 text-on-surface-variant rounded-full text-[13px] font-semibold hover:bg-error/10 hover:text-error transition-colors">拒绝</button>
+</div>
+</div>
+</div>
+<!-- Footer Pagination -->
+<div class="pt-8 flex flex-col items-center gap-4">
+<p class="text-[12px] text-secondary">正在查看 5 / 12 位申请者</p>
+<button class="px-8 py-2.5 bg-white border border-black/5 rounded-full text-[13px] font-semibold text-on-surface hover:bg-black/5 transition-all apple-card-shadow">
+                    加载更多
+                </button>
+</div>
+</section>
+</main>
+</body></html>

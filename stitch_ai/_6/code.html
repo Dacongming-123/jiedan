@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#44474e",
+                        "tertiary-container": "#dff4ff",
+                        "surface-container-low": "#f7f9fc",
+                        "on-primary-fixed": "#001d35",
+                        "primary-fixed": "#d1e4ff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#f0f0f3",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary": "#585f6a",
+                        "surface-bright": "#fcfcff",
+                        "tertiary-fixed": "#bee9ff",
+                        "on-tertiary-fixed": "#001f2a",
+                        "on-error-container": "#410002",
+                        "surface-tint": "#0061a4",
+                        "on-primary-fixed-variant": "#004a7f",
+                        "on-secondary-fixed": "#161c24",
+                        "surface-variant": "#e0e2ec",
+                        "on-secondary-fixed-variant": "#414750",
+                        "on-tertiary-fixed-variant": "#004d66",
+                        "tertiary": "#006686",
+                        "surface-container-highest": "#e2e2e6",
+                        "on-surface-variant": "#44474e",
+                        "surface-container": "#f0f0f3",
+                        "outline": "#74777f",
+                        "on-primary-container": "#ffffff",
+                        "primary-container": "#0ea5e9",
+                        "surface-container-high": "#e8eaed",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#9ecaef",
+                        "primary-fixed-dim": "#9ecaef",
+                        "surface": "#f8fafc",
+                        "outline-variant": "#c4c6d0",
+                        "tertiary-fixed-dim": "#87cefd",
+                        "on-background": "#1a1c1e",
+                        "on-tertiary-container": "#001e2c",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d9dbdf",
+                        "inverse-on-surface": "#f1f0f4",
+                        "on-surface": "#1a1c1e",
+                        "inverse-surface": "#2f3033",
+                        "secondary-fixed": "#dae2f1",
+                        "background": "#f8fafc",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#bec6d5",
+                        "primary": "#0ea5e9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "2xl": "1.5rem",
+                        "3xl": "2.25rem",
+                        "4xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "PingFang SC"],
+                        "body": ["Inter", "PingFang SC"],
+                        "label": ["Inter", "PingFang SC"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(0,0,0,0.1);
+        }
+        body {
+            overflow: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+        .glass-nav {
+            background: rgba(248, 250, 252, 0.7);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+        }
+        .frost-tab-container {
+            background: rgba(241, 245, 249, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        .frost-tab-active {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+        .premium-shadow {
+            box-shadow: 
+                0 4px 6px -1px rgba(0, 0, 0, 0.02),
+                0 10px 15px -3px rgba(0, 0, 0, 0.03),
+                0 20px 25px -5px rgba(0, 0, 0, 0.03);
+        }
+        .premium-shadow-hover {
+            box-shadow: 
+                0 10px 20px -5px rgba(0, 0, 0, 0.04),
+                0 20px 40px -10px rgba(0, 0, 0, 0.05),
+                0 40px 60px -15px rgba(0, 0, 0, 0.06);
+        }
+        /* Squircle-like smoothness */
+        .squircle-card {
+            border-radius: 3rem;
+        }
+    </style>
+</head>
+<body class="bg-[#F9FBFF] font-body text-slate-900">
+<div class="flex h-screen w-full overflow-hidden">
+<!-- Left Sidebar: Profile & Stats -->
+<aside class="w-[38%] bg-white flex flex-col p-16 relative overflow-hidden shrink-0 border-r border-slate-100/80">
+<div class="absolute top-0 right-0 w-[400px] h-[400px] bg-sky-50 rounded-full blur-[120px] -mr-48 -mt-48 opacity-60"></div>
+<div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/5 rounded-full blur-[100px] -ml-32 -mb-32 opacity-50"></div>
+<div class="relative z-10 h-full flex flex-col">
+<div class="mb-20">
+<div class="text-2xl font-black tracking-tight text-slate-900">
+<a class="cursor-pointer hover:text-primary transition-all flex items-center gap-2" href="#">
+<span class="w-2 h-2 bg-primary rounded-full"></span>
+                            智创工坊
+                        </a>
+</div>
+</div>
+<!-- Profile Info Section -->
+<div class="flex flex-col items-start gap-10 mb-16">
+<div class="relative">
+<img alt="用户头像" class="w-36 h-36 rounded-4xl object-cover shadow-2xl border-8 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnXXE9kf4Lu7toa147-UbOpSD6V10UlDq15uw6pOvfaSZZ2SeDOyOF3VzVfvYx-1q-K60kz3z_hInH5KCSgfh6LGYgatp4sCMt2Ymw92FMhWoQm2_kKAtyfrJG-Tyj2P2mB0a6fEDlwTRc9vwS64XBuYlVyKD_AmOaCUPIyBALHVw1afKIRrCILxR-J_JCdxRE5N_QL5nAdZjmCxBixkFdGmCLMObv5q4yQ7Mxw-BrpL3ngeicNv8zvzjXsDvttfH-2wLIvCvw8iwq"/>
+<div class="absolute -bottom-2 -right-1 bg-primary w-9 h-9 rounded-full border-4 border-white flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-xs text-white" style='font-variation-settings: "FILL" 1;'>check</span>
+</div>
+</div>
+<div>
+<h1 class="text-6xl font-black tracking-tight text-slate-900">Creator ID</h1>
+<p class="text-slate-400 mt-4 text-xl font-medium">个人中心 &amp; 账户管理</p>
+</div>
+<!-- Identity Switcher -->
+<div class="frost-tab-container p-1.5 rounded-full flex w-full max-w-[340px] shadow-sm">
+<button class="flex-1 py-3.5 px-6 rounded-full text-sm font-bold transition-all duration-300 bg-slate-900 text-white shadow-xl">
+                            雇主模式
+                        </button>
+<button class="flex-1 py-3.5 px-6 rounded-full text-sm font-bold transition-all duration-300 text-slate-400 hover:text-slate-900">
+                            创作者模式
+                        </button>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 gap-12 mt-auto">
+<div class="flex gap-16">
+<div class="space-y-3">
+<p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em]">累计支出</p>
+<p class="text-5xl font-black text-slate-900 tabular-nums">¥12.8k</p>
+</div>
+<div class="space-y-3">
+<p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em]">完结单数</p>
+<p class="text-5xl font-black text-slate-900 tabular-nums">24</p>
+</div>
+</div>
+<div class="space-y-3">
+<p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em]">活跃天数</p>
+<p class="text-5xl font-black text-slate-900 tabular-nums">452</p>
+</div>
+</div>
+<div class="mt-16">
+<button class="w-full py-5 bg-slate-900 text-white rounded-3xl font-bold text-lg flex items-center justify-center gap-3 hover:bg-slate-800 transition-all shadow-2xl hover:-translate-y-0.5 active:translate-y-0">
+<span class="material-symbols-outlined">add</span>
+                        发布新单子
+                    </button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="w-[62%] h-full flex flex-col bg-slate-50/50 overflow-hidden relative">
+<header class="px-16 py-10 flex justify-between items-center glass-nav sticky top-0 z-30">
+<div class="flex flex-col gap-6">
+<!-- Navigation Refinement -->
+<div class="frost-tab-container p-1 rounded-full inline-flex w-fit shadow-sm">
+<button class="px-7 py-2.5 rounded-full text-sm font-bold transition-all duration-300 frost-tab-active text-primary flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[1.3rem]" style='font-variation-settings: "FILL" 1;'>home</span>
+                            首页
+                        </button>
+<button class="px-7 py-2.5 rounded-full text-sm font-bold transition-all duration-300 text-slate-400 hover:text-slate-900 flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[1.3rem]">explore</span>
+                            需求广场
+                        </button>
+</div>
+</div>
+<div class="flex items-center gap-8 self-start pt-1">
+<div class="flex gap-6 text-slate-400">
+<div class="relative cursor-pointer group">
+<span class="material-symbols-outlined text-2xl group-hover:text-primary transition-colors">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</div>
+</div>
+<img alt="用户头像" class="w-12 h-12 rounded-full ring-4 ring-white shadow-md cursor-pointer hover:scale-105 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAo9QP5lmqGBX5JTfF3nphq-OI2zAvovNvut-LDfw9RbpTanZzkXe_tHdlsSpjbpZNHQ3_bYnEcolG-OrNtKvBla2_05D98LvH454FceZdjMX9tJFyDERnME4kbgOa2rWaySJUvukVJFAKjU6dvE5Wvlkujfn7IjhdUWRjA6vkTEGrUwRDewFXDHKr9rcWtvLmAVJrMvWjhueJnxJ8N501q5EZlqL8pByq6Xf27mo9f0T8yrGGljYCINHkdr0nWk2YRlC-RY-9ya67"/>
+</div>
+</header>
+<!-- Sticky Title Container -->
+<div class="px-16 pt-16 pb-4 glass-nav z-20">
+<h2 class="text-4xl font-black text-slate-900 flex items-center gap-4">
+<span class="w-1.5 h-10 bg-primary rounded-full shadow-[0_0_15px_rgba(14,165,233,0.3)]"></span>
+                    我的订单
+                </h2>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto custom-scrollbar px-16 pb-16">
+<div class="space-y-8 pt-4">
+<!-- Order Card 1 -->
+<article class="group relative glass-card squircle-card p-10 premium-shadow hover:premium-shadow-hover transition-all duration-500 cursor-pointer">
+<div class="flex justify-between items-start mb-8">
+<div class="flex gap-4">
+<span class="px-6 py-2 bg-emerald-50 text-emerald-600 text-[10px] font-black rounded-full uppercase tracking-widest border border-emerald-100/50">进行中</span>
+<span class="px-6 py-2 bg-slate-50 text-slate-400 text-[10px] font-black rounded-full uppercase tracking-widest border border-slate-100/50">VI设计</span>
+</div>
+<span class="text-3xl font-black text-primary tracking-tight">¥2,500</span>
+</div>
+<h3 class="text-3xl font-extrabold text-slate-900 mb-4 group-hover:text-primary transition-colors duration-300 tracking-tight leading-tight">高端餐饮品牌VI设计</h3>
+<p class="text-lg text-slate-500 leading-relaxed max-w-2xl mb-10 font-medium">需要一套包含Logo、菜单、及室内导视系统的完整视觉方案。要求具备极简主义美学与高度的品牌识别度。</p>
+<div class="flex items-center justify-between pt-10 border-t border-slate-100/40">
+<div class="flex items-center gap-5">
+<div class="flex -space-x-3.5">
+<img class="w-11 h-11 rounded-full border-4 border-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpxKGUQXXfE_7ouodC-3Pa2vh_Ly5MAf4JOoDoqQMK0gbzPONZoVVFC_x3_sm4gf1WYpRkqSaIi7Du1RVd9Q0xxQQaah7HDPeO8yPinN0p08nA2ZxywN4-3dk-YvZgB6GGZf_VxNG87TRo4QPJK1xdvZECAixu6dWWDxMTBd2m1NPKHZ8pKDxSakzeS9kI304WcqlWJuw-mVf0k9Mz0xsoP7BKGj6_d1jlxjRQEt9PVls4RnzFaVU4EmiWDTBu6ZAb1WY7xMkuuKK3"/>
+<img class="w-11 h-11 rounded-full border-4 border-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJfwwdLcqdVZQpeWv1rBtZ1u14QJh4D2fG6SAYkSpmnWJvGUb38sLUIaMQ8eeoSw7QWp_41vu0m_OneypTiAIi1mdQLNeuRWq87ioeQ_BIaRAn6QDFT2d6_9Cl_vaf-dwIRM6lRrP3RhBZ5w0_xbRzxXoZ7bNnsyYNI4Kzo8_WlWVz9tPwWYaZ6Jg3m4_6EMpee67r-1fl9Aaq7TcIi_p7cC-vvDr6ZGGNfUfkZ7C5ofcNBgxe9PG0_x0H8-FOCYGvW4qphP9d6P7o"/>
+<div class="w-11 h-11 rounded-full bg-slate-50 border-4 border-white flex items-center justify-center text-[10px] text-slate-400 font-black shadow-sm">+4</div>
+</div>
+<span class="text-sm font-bold text-slate-400">12人已投递</span>
+</div>
+<button class="flex items-center gap-2 text-base font-black text-slate-900 group/btn hover:text-primary transition-colors">
+                                查看详情 <span class="material-symbols-outlined text-xl group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Order Card 2 -->
+<article class="group relative glass-card squircle-card p-10 premium-shadow hover:premium-shadow-hover transition-all duration-500 cursor-pointer">
+<div class="flex justify-between items-start mb-8">
+<div class="flex gap-4">
+<span class="px-6 py-2 bg-sky-50 text-sky-600 text-[10px] font-black rounded-full uppercase tracking-widest border border-sky-100/50">招募中</span>
+<span class="px-6 py-2 bg-slate-50 text-slate-400 text-[10px] font-black rounded-full uppercase tracking-widest border border-slate-100/50">3D建模</span>
+</div>
+<span class="text-3xl font-black text-primary tracking-tight">¥1,200</span>
+</div>
+<h3 class="text-3xl font-extrabold text-slate-900 mb-4 group-hover:text-primary transition-colors duration-300 tracking-tight leading-tight">3D角色动画场景建模</h3>
+<p class="text-lg text-slate-500 leading-relaxed max-w-2xl mb-10 font-medium">针对二次元风格的手游进行城市场景建模，包含光影氛围渲染。需要配合原画设定进行精准还原。</p>
+<div class="flex items-center justify-between pt-10 border-t border-slate-100/40">
+<div class="flex items-center gap-5">
+<div class="flex">
+<img class="w-11 h-11 rounded-full border-4 border-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_xJ5QukMUgvC2s3Yo2eNpXU-vXvpoVefc_JU7GLL_zwlejQ-QX-9WtY2mL5wdNCc0cXThIPYnk4K9zqRjrGbxj2Z2oDMYAyLHyvz9NXZh-hO-4tXAX88eIURPSEUe_qr953-55ydJlbrrSh9CSnrY-hamvny2Vq0zx6VG8RQJCJVK80h2xGkK6Pued1TCUHcKsDHjH-cLgvKLFaXXDP72Qgk9ms3GZjz9WmsCvzQvDqNGiStQAdAx3jOUfkByoUvRD9Fc6nXSAw_e"/>
+</div>
+<span class="text-sm font-bold text-slate-400">8人已投递</span>
+</div>
+<button class="flex items-center gap-2 text-base font-black text-slate-900 group/btn hover:text-primary transition-colors">
+                                查看详情 <span class="material-symbols-outlined text-xl group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Order Card 3 -->
+<article class="group relative glass-card squircle-card p-10 premium-shadow hover:premium-shadow-hover transition-all duration-500 cursor-pointer">
+<div class="flex justify-between items-start mb-8">
+<div class="flex gap-4">
+<span class="px-6 py-2 bg-slate-100 text-slate-500 text-[10px] font-black rounded-full uppercase tracking-widest border border-slate-200/50">已结束</span>
+<span class="px-6 py-2 bg-slate-50 text-slate-400 text-[10px] font-black rounded-full uppercase tracking-widest border border-slate-100/50">视频制作</span>
+</div>
+<span class="text-3xl font-black text-primary tracking-tight">¥4,000</span>
+</div>
+<h3 class="text-3xl font-extrabold text-slate-900 mb-4 group-hover:text-primary transition-colors duration-300 tracking-tight leading-tight">企业宣传片后期特效</h3>
+<p class="text-lg text-slate-500 leading-relaxed max-w-2xl mb-10 font-medium">负责5分钟企业宣传片的全程后期特效制作，包括调色与文字动效。项目已顺利交付并获得高度评价。</p>
+<div class="flex items-center justify-between pt-10 border-t border-slate-100/40">
+<div class="flex items-center gap-5">
+<div class="flex">
+<img class="w-11 h-11 rounded-full border-4 border-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbAXZSWZ7jZv4s3AaVi3vHIK0t60tNS6yRRJtOJ-TPjb_Z9ngKX8CyGp52W2EAHoV24bz1DNDdyN-1C7oFgkNCdE9Z4i-jH3OOP4V__LkZ-vIWsrF-jC0drDoQzb3OlisaW7wyQj0u34W9MfRRm1MaAcdzU9XjzNcvrnFNmKRqLUiWfSd8k5WV-GaEDOVfg3QS2l9eO11uME4HTPy7Hf9IE4NeonqT92iM7IjBsCsVwKjbVUTkjcGfoOtF78ohfEDe91zHXfw-qn05"/>
+</div>
+<span class="text-sm font-bold text-slate-400">15人已投递</span>
+</div>
+<button class="flex items-center gap-2 text-base font-black text-slate-900 group/btn hover:text-primary transition-colors">
+                                查看详情 <span class="material-symbols-outlined text-xl group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</article>
+<div class="h-16"></div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
